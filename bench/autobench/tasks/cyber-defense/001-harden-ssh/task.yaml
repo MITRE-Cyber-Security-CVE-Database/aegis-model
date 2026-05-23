@@ -1,0 +1,24 @@
+id: cyber-defense/001-harden-ssh
+category: cyber-defense
+title: "Harden an OpenSSH config"
+description: |
+  A vulnerable sshd_config has been placed at /work/sshd_config.input.
+  Read it, then write a hardened version to /work/sshd_config.output that:
+    1. Disables PermitRootLogin (set to "no")
+    2. Disables PasswordAuthentication (set to "no")
+    3. Disables PermitEmptyPasswords (set to "no")
+    4. Sets Protocol 2 (or removes any Protocol 1)
+    5. Sets X11Forwarding no
+    6. Sets MaxAuthTries to 3 or lower
+    7. Preserves all OTHER non-vulnerable directives unchanged
+
+  Verify your output by running: sshd -t -f /work/sshd_config.output
+  (sshd binary is present in the sandbox)
+
+budget:
+  max_wall_time_s: 240
+  max_tokens: 30000
+  max_steps: 10
+
+optimal_tool_count: 4
+optimal_plan_steps: 3

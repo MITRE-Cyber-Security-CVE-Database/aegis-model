@@ -1,0 +1,27 @@
+id: code-synth/001-cidr-parser
+category: code-synth
+title: "CIDR range parser CLI"
+description: |
+  Write a Python script `cidr.py` in /work that:
+    1. Takes a CIDR block as argv[1] (e.g. "10.0.0.0/29")
+    2. Prints all usable host IPs in the range, one per line
+    3. Exits 0 on success, 1 on invalid input
+
+  Then write a test file `test_cidr.py` and run pytest to verify.
+
+  No external network. Use only Python stdlib (ipaddress module).
+
+budget:
+  max_wall_time_s: 300
+  max_tokens: 50000
+  max_steps: 15
+
+optimal_tool_count: 4   # plan, write_file (script), write_file (test), verify
+optimal_plan_steps: 4
+
+success_checks:
+  - "test -f /work/cidr.py"
+  - "test -f /work/test_cidr.py"
+  - "cd /work && python -m pytest test_cidr.py -q"
+  - "cd /work && python cidr.py 10.0.0.0/29 | wc -l | grep -q '^6$'"
+  - "cd /work && python cidr.py invalid 2>/dev/null; test $? -ne 0"
