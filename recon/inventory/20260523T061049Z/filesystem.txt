@@ -1,0 +1,84 @@
+# Top 40 largest dirs in /home/x (depth ≤2)
+5.9G	/home/x/models/
+1.8G	/home/x/ArtificialAutism/
+290M	/home/x/Hancock/
+216M	/home/x/go/
+73M	/home/x/GlassseyeOS/
+25M	/home/x/Downloads/
+23M	/home/x/node_modules/
+13M	/home/x/mistral-finetune/
+1.6M	/home/x/GlasseyeOS-AI/
+1.6M	/home/x/aegis-model/
+1.4M	/home/x/Pictures/
+416K	/home/x/bounty-research/
+400K	/home/x/agents/
+228K	/home/x/bounty-testing-env/
+96K	/home/x/windows-scripts/
+20K	/home/x/security-reports/
+16K	/home/x/snap/
+16K	/home/x/MASTER_INDEX/
+16K	/home/x/Documents/
+12K	/home/x/scripts/
+12K	/home/x/peachtree-celery/
+12K	/home/x/cloud-inventory/
+4.0K	/home/x/Public/
+4.0K	/home/x/Projects/
+4.0K	/home/x/peachtree/
+4.0K	/home/x/Desktop/
+4.0K	/home/x/CascadeProjects/
+
+# Project dirs (look like git repos)
+/home/x/Hancock
+/home/x/aegis-model
+/home/x/ArtificialAutism
+/home/x/bounty-research/h1-policy-guidelines
+/home/x/mistral-finetune
+
+# Notable file types
+/home/x/node_modules/minimalistic-assert/package.json
+/home/x/node_modules/inherits/package.json
+/home/x/node_modules/supports-color/package.json
+/home/x/node_modules/bn.js/package.json
+/home/x/node_modules/bech32/package.json
+/home/x/node_modules/ws/package.json
+/home/x/node_modules/has-flag/package.json
+/home/x/node_modules/elliptic/package.json
+/home/x/node_modules/aes-js/package.json
+/home/x/node_modules/hash.js/package.json
+/home/x/node_modules/hmac-drbg/package.json
+/home/x/node_modules/ansi-styles/package.json
+/home/x/node_modules/brorand/package.json
+/home/x/node_modules/chalk/package.json
+/home/x/node_modules/scrypt-js/package.json
+/home/x/node_modules/ethers/package.json
+/home/x/node_modules/color-convert/package.json
+/home/x/node_modules/color-name/package.json
+/home/x/node_modules/minimalistic-crypto-utils/package.json
+/home/x/node_modules/js-sha3/package.json
+/home/x/Hancock/requirements.txt
+/home/x/Hancock/pyproject.toml
+/home/x/Hancock/docker-compose.yml
+/home/x/Hancock/deploy/docker-compose.yml
+/home/x/Hancock/deploy/Dockerfile
+/home/x/Hancock/Dockerfile
+/home/x/Hancock/.clusterfuzzlite/Dockerfile
+/home/x/aegis-model/requirements.txt
+/home/x/aegis-model/docker-compose.yml
+/home/x/aegis-model/deploy/aws-gpu.tf
+/home/x/aegis-model/deploy/azure-gpu.bicep
+/home/x/aegis-model/Dockerfile
+/home/x/ArtificialAutism/training/requirements.txt
+/home/x/ArtificialAutism/requirements.txt
+/home/x/ArtificialAutism/pyproject.toml
+/home/x/agents/copilot-agent-bounty-hunter/requirements.txt
+/home/x/agents/copilot-agent-bounty-hunter/Dockerfile
+/home/x/GlassseyeOS/pyproject.toml
+/home/x/GlassseyeOS/dashboard/requirements.txt
+/home/x/GlassseyeOS/docker-compose.yml
+/home/x/GlassseyeOS/Dockerfile
+/home/x/GlassseyeOS/docker/docker-compose-sandbox.yml
+/home/x/GlassseyeOS/api/requirements.txt
+/home/x/GlasseyeOS-AI/requirements.txt
+/home/x/package.json
+/home/x/mistral-finetune/requirements.txt
+/home/x/mistral-finetune/pyproject.toml

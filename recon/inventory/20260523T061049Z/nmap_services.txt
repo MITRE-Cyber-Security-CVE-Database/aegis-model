@@ -1,0 +1,160 @@
+# Nmap 7.99 scan initiated Sat May 23 01:10:55 2026 as: /usr/lib/nmap/nmap --privileged -sV --version-light -F -T4 --max-retries 2 --host-timeout 60s -oN /home/x/aegis-model/recon/inventory/20260523T061049Z/nmap_services.txt -oX /home/x/aegis-model/recon/inventory/20260523T061049Z/nmap_services.xml -oG /home/x/aegis-model/recon/inventory/20260523T061049Z/nmap_services.gnmap 192.168.0.1 192.168.0.121 192.168.0.162 192.168.0.189 192.168.0.192 192.168.0.193 192.168.0.210 192.168.0.37 192.168.0.70 192.168.0.83
+Nmap scan report for 192.168.0.1
+Host is up (0.0051s latency).
+Not shown: 92 closed tcp ports (reset)
+PORT      STATE    SERVICE    VERSION
+22/tcp    filtered ssh
+23/tcp    filtered telnet
+53/tcp    open     domain     dnsmasq 2.83
+80/tcp    open     http?
+111/tcp   filtered rpcbind
+443/tcp   open     ssl/https?
+8080/tcp  filtered http-proxy
+49152/tcp open     upnp       Portable SDK for UPnP devices 1.6.22 (Linux 4.9.314-cougarmountain; UPnP 1.0)
+2 services unrecognized despite returning data. If you know the service/version, please submit the following fingerprints at https://nmap.org/cgi-bin/submit.cgi?new-service :
+==============NEXT SERVICE FINGERPRINT (SUBMIT INDIVIDUALLY)==============
+SF-Port80-TCP:V=7.99%I=2%D=5/23%Time=6A1144FB%P=x86_64-pc-linux-gnu%r(GetR
+SF:equest,26D9,"HTTP/1\.0\x20200\x20OK\r\nContent-type:\x20text/html\r\nX-
+SF:robots-tag:\x20noindex,nofollow\r\nX-Frame-Options:\x20deny\r\nX-XSS-Pr
+SF:otection:\x201;\x20mode=block\r\nX-Content-Type-Options:\x20nosniff\r\n
+SF:Strict-Transport-Security:\x20max-age=15768000;\x20includeSubdomains\r\
+SF:nPragma:\x20no-cache\r\nCache-Control:\x20no-store,\x20no-cache,\x20mus
+SF:t-revalidate\r\nContent-Security-Policy:\x20default-src\x20'self'\x20'u
+SF:nsafe-inline'\x20'unsafe-eval';\x20style-src\x20'self'\x20'unsafe-inlin
+SF:e'\x20'unsafe-eval';\x20frame-src\x20'self'\x20'unsafe-inline'\x20'unsa
+SF:fe-eval';\x20font-src\x20'self'\x20'unsafe-inline'\x20'unsafe-eval';\x2
+SF:0form-action\x20'self'\x20'unsafe-inline'\x20'unsafe-eval';\x20script-s
+SF:rc\x20'self'\x20'unsafe-inline'\x20'unsafe-eval';\x20img-src\x20'self';
+SF:\x20connect-src\x20'self';\x20object-src\x20'none';\x20media-src\x20'no
+SF:ne';\x20script-nonce\x20'none';\x20plugin-types\x20'none';\x20reflected
+SF:-xss\x20'none';\x20report-uri\x20'none';\r\nContent-Length:\x209053\r\n
+SF:Connection:\x20close\r\nDate:\x20Sat,\x2023\x20May\x202026\x2006:11:07\
+SF:x20GMT\r\nServer:\x20Xfinity\x20Broadband\x20Router\x20Server\r\n\r\n\n
+SF:<!DOCTY")%r(HTTPOptions,1C48,"HTTP/1\.0\x20200\x20OK\r\nContent-type:\x
+SF:20text/html\r\nX-robots-tag:\x20noindex,nofollow\r\nX-Frame-Options:\x2
+SF:0deny\r\nX-XSS-Protection:\x201;\x20mode=block\r\nX-Content-Type-Option
+SF:s:\x20nosniff\r\nStrict-Transport-Security:\x20max-age=15768000;\x20inc
+SF:ludeSubdomains\r\nPragma:\x20no-cache\r\nCache-Control:\x20no-store,\x2
+SF:0no-cache,\x20must-revalidate\r\nContent-Security-Policy:\x20default-sr
+SF:c\x20'self'\x20'unsafe-inline'\x20'unsafe-eval';\x20style-src\x20'self'
+SF:\x20'unsafe-inline'\x20'unsafe-eval';\x20frame-src\x20'self'\x20'unsafe
+SF:-inline'\x20'unsafe-eval';\x20font-src\x20'self'\x20'unsafe-inline'\x20
+SF:'unsafe-eval';\x20form-action\x20'self'\x20'unsafe-inline'\x20'unsafe-e
+SF:val';\x20script-src\x20'self'\x20'unsafe-inline'\x20'unsafe-eval';\x20i
+SF:mg-src\x20'self';\x20connect-src\x20'self';\x20object-src\x20'none';\x2
+SF:0media-src\x20'none';\x20script-nonce\x20'none';\x20plugin-types\x20'no
+SF:ne';\x20reflected-xss\x20'none';\x20report-uri\x20'none';\r\nContent-Le
+SF:ngth:\x209053\r\nConnection:\x20close\r\nDate:\x20Sat,\x2023\x20May\x20
+SF:2026\x2006:11:07\x20GMT\r\nServer:\x20Xfinity\x20Broadband\x20Router\x2
+SF:0Server\r\n\r\n\n<!DOCTY");
+==============NEXT SERVICE FINGERPRINT (SUBMIT INDIVIDUALLY)==============
+SF-Port443-TCP:V=7.99%T=SSL%I=2%D=5/23%Time=6A114501%P=x86_64-pc-linux-gnu
+SF:%r(GetRequest,26D9,"HTTP/1\.0\x20200\x20OK\r\nContent-type:\x20text/htm
+SF:l\r\nX-robots-tag:\x20noindex,nofollow\r\nX-Frame-Options:\x20deny\r\nX
+SF:-XSS-Protection:\x201;\x20mode=block\r\nX-Content-Type-Options:\x20nosn
+SF:iff\r\nStrict-Transport-Security:\x20max-age=15768000;\x20includeSubdom
+SF:ains\r\nPragma:\x20no-cache\r\nCache-Control:\x20no-store,\x20no-cache,
+SF:\x20must-revalidate\r\nContent-Security-Policy:\x20default-src\x20'self
+SF:'\x20'unsafe-inline'\x20'unsafe-eval';\x20style-src\x20'self'\x20'unsaf
+SF:e-inline'\x20'unsafe-eval';\x20frame-src\x20'self'\x20'unsafe-inline'\x
+SF:20'unsafe-eval';\x20font-src\x20'self'\x20'unsafe-inline'\x20'unsafe-ev
+SF:al';\x20form-action\x20'self'\x20'unsafe-inline'\x20'unsafe-eval';\x20s
+SF:cript-src\x20'self'\x20'unsafe-inline'\x20'unsafe-eval';\x20img-src\x20
+SF:'self';\x20connect-src\x20'self';\x20object-src\x20'none';\x20media-src
+SF:\x20'none';\x20script-nonce\x20'none';\x20plugin-types\x20'none';\x20re
+SF:flected-xss\x20'none';\x20report-uri\x20'none';\r\nContent-Length:\x209
+SF:053\r\nConnection:\x20close\r\nDate:\x20Sat,\x2023\x20May\x202026\x2006
+SF::11:13\x20GMT\r\nServer:\x20Xfinity\x20Broadband\x20Router\x20Server\r\
+SF:n\r\n\n<!DOCTY")%r(HTTPOptions,26D9,"HTTP/1\.0\x20200\x20OK\r\nContent-
+SF:type:\x20text/html\r\nX-robots-tag:\x20noindex,nofollow\r\nX-Frame-Opti
+SF:ons:\x20deny\r\nX-XSS-Protection:\x201;\x20mode=block\r\nX-Content-Type
+SF:-Options:\x20nosniff\r\nStrict-Transport-Security:\x20max-age=15768000;
+SF:\x20includeSubdomains\r\nPragma:\x20no-cache\r\nCache-Control:\x20no-st
+SF:ore,\x20no-cache,\x20must-revalidate\r\nContent-Security-Policy:\x20def
+SF:ault-src\x20'self'\x20'unsafe-inline'\x20'unsafe-eval';\x20style-src\x2
+SF:0'self'\x20'unsafe-inline'\x20'unsafe-eval';\x20frame-src\x20'self'\x20
+SF:'unsafe-inline'\x20'unsafe-eval';\x20font-src\x20'self'\x20'unsafe-inli
+SF:ne'\x20'unsafe-eval';\x20form-action\x20'self'\x20'unsafe-inline'\x20'u
+SF:nsafe-eval';\x20script-src\x20'self'\x20'unsafe-inline'\x20'unsafe-eval
+SF:';\x20img-src\x20'self';\x20connect-src\x20'self';\x20object-src\x20'no
+SF:ne';\x20media-src\x20'none';\x20script-nonce\x20'none';\x20plugin-types
+SF:\x20'none';\x20reflected-xss\x20'none';\x20report-uri\x20'none';\r\nCon
+SF:tent-Length:\x209053\r\nConnection:\x20close\r\nDate:\x20Sat,\x2023\x20
+SF:May\x202026\x2006:11:14\x20GMT\r\nServer:\x20Xfinity\x20Broadband\x20Ro
+SF:uter\x20Server\r\n\r\n\n<!DOCTY");
+MAC Address: 10:E1:77:2B:BE:8D (Commscope)
+Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel:4.9.314-cougarmountain
+
+Nmap scan report for 192.168.0.121
+Host is up (0.011s latency).
+All 100 scanned ports on 192.168.0.121 are in ignored states.
+Not shown: 100 closed tcp ports (reset)
+MAC Address: D0:3F:27:B5:DC:EA (Wyze Labs)
+
+Nmap scan report for 192.168.0.162
+Host is up (0.015s latency).
+Not shown: 96 closed tcp ports (reset)
+PORT     STATE    SERVICE    VERSION
+22/tcp   open     ssh        Dropbear sshd 2025.89 (protocol 2.0)
+80/tcp   filtered http
+443/tcp  filtered https
+8080/tcp filtered http-proxy
+MAC Address: D8:3A:DD:98:E4:87 (Raspberry Pi Trading)
+Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
+
+Nmap scan report for 192.168.0.192
+Host is up (0.011s latency).
+Not shown: 93 closed tcp ports (reset)
+PORT     STATE SERVICE  VERSION
+22/tcp   open  ssh      OpenSSH 10.0p2 Debian 7+deb13u4 (protocol 2.0)
+80/tcp   open  http     Golang net/http server (Go-IPFS json-rpc or InfluxDB API)
+111/tcp  open  rpcbind
+443/tcp  open  ssl/http Golang net/http server (Go-IPFS json-rpc or InfluxDB API)
+2049/tcp open  rpcbind
+5900/tcp open  vnc      VNC (protocol 3.8)
+8080/tcp open  http     Werkzeug httpd 3.1.8 (Python 3.11.15)
+MAC Address: D8:3A:DD:8A:BB:FC (Raspberry Pi Trading)
+Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
+
+Nmap scan report for 192.168.0.193
+Host is up (0.012s latency).
+Not shown: 99 closed tcp ports (reset)
+PORT     STATE SERVICE    VERSION
+3000/tcp open  tcpwrapped
+MAC Address: 04:70:56:54:56:FA (Arcadyan)
+
+Nmap scan report for 192.168.0.210
+Host is up (0.018s latency).
+Not shown: 99 closed tcp ports (reset)
+PORT     STATE SERVICE VERSION
+8080/tcp open  http    lighttpd
+MAC Address: 80:47:86:91:3C:6E (Samsung Electronics)
+
+Nmap scan report for 192.168.0.37
+Host is up (0.0049s latency).
+All 100 scanned ports on 192.168.0.37 are in ignored states.
+Not shown: 100 filtered tcp ports (no-response)
+MAC Address: 28:EA:0B:76:4F:91 (Microsoft)
+
+Nmap scan report for 192.168.0.70
+Host is up (0.010s latency).
+Not shown: 95 closed tcp ports (reset)
+PORT     STATE SERVICE       VERSION
+22/tcp   open  ssh           OpenSSH for_Windows_9.5 (protocol 2.0)
+135/tcp  open  msrpc         Microsoft Windows RPC
+139/tcp  open  netbios-ssn   Microsoft Windows netbios-ssn
+445/tcp  open  microsoft-ds?
+3389/tcp open  ms-wbt-server
+MAC Address: 16:09:01:19:56:FF (Unknown)
+Service Info: OS: Windows; CPE: cpe:/o:microsoft:windows
+
+Nmap scan report for 192.168.0.83
+Host is up (0.000026s latency).
+Not shown: 98 filtered tcp ports (no-response)
+PORT     STATE SERVICE    VERSION
+22/tcp   open  ssh        OpenSSH 10.3p1 Debian 1 (protocol 2.0)
+3389/tcp open  tcpwrapped
+Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
+
+Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+# Nmap done at Sat May 23 01:11:35 2026 -- 10 IP addresses (9 hosts up) scanned in 39.60 seconds

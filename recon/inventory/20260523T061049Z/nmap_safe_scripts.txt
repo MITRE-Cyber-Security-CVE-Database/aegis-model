@@ -1,0 +1,575 @@
+# Nmap 7.99 scan initiated Sat May 23 01:11:35 2026 as: /usr/lib/nmap/nmap --privileged -sV --script "default,safe and not intrusive" -p 22,80,443,3389,445,139,8080,8443,3000,3030,5432,6379,11434 -T4 --max-retries 1 --host-timeout 90s -oN /home/x/aegis-model/recon/inventory/20260523T061049Z/nmap_safe_scripts.txt 192.168.0.1 192.168.0.121 192.168.0.162 192.168.0.189 192.168.0.192 192.168.0.193 192.168.0.210 192.168.0.37 192.168.0.70 192.168.0.83
+Pre-scan script results:
+| targets-ipv6-multicast-mld: 
+|   IP: fe80::346d:e4ff:fe58:f758  MAC: 36:6d:e4:58:f7:58  IFACE: vethbe463ad5
+|   IP: fe80::4853:2ff:fe01:a8d2   MAC: 4a:53:02:01:a8:d2  IFACE: veth8d900f9f
+|   IP: fe80::670:56ff:fe54:56fa   MAC: 04:70:56:54:56:fa  IFACE: wlan0
+|   IP: fe80::845:d25a:81e7:a5c2   MAC: 16:09:01:19:56:ff  IFACE: eth0
+| 
+|_  Use --script-args=newtargets to add the results as targets
+|_broadcast-wpad-discover: Failed to retrieve wpad.dat (http://wpad.com/wpad.dat) from server
+| targets-sniffer: Sniffed 4 address(es). 
+| fe80::12e1:77ff:fe2b:be8d
+| fe80::a2a2:51f7:af5f:4a4
+| 192.168.0.193
+|_224.0.0.251
+|_broadcast-igmp-discovery: ERROR: Script execution failed (use -d to debug)
+| eap-info: 
+| Available authentication methods with identity="anonymous" on interface eth0
+|   unknown  EAP-TTLS
+|   unknown  EAP-TLS
+|   unknown  EAP-MSCHAP-V2
+|_  unknown  PEAP
+|_knx-gateway-discover: ERROR: Script execution failed (use -d to debug)
+|_http-robtex-shared-ns: *TEMPORARILY DISABLED* due to changes in Robtex's API. See https://www.robtex.com/api/
+| broadcast-listener: 
+|   ether
+|       ARP Request
+|         sender ip      sender mac         target ip
+|         192.168.0.1    10:e1:77:2b:be:8d  192.168.0.191
+|         172.19.0.3     e6:18:9f:30:4a:29  172.19.0.6
+|         192.168.0.189  d8:3a:dd:8a:bb:fb  192.168.0.163
+|   udp
+|       Netbios
+|         Query
+|           ip            query
+|           192.168.0.83  
+|       SSDP
+|         ip            uri
+|         192.168.0.37   urn:schemas-upnp-org:device:InternetGatewayDevice:1
+|       DHCP
+|         srv ip       cli ip         mask           gw           dns                         vendor
+|         192.168.0.1  192.168.0.62   255.255.255.0  192.168.0.1  68.105.29.11, 68.105.28.12  -
+|         192.168.0.1  192.168.0.175  255.255.255.0  192.168.0.1  68.105.29.11, 68.105.28.12  -
+|         192.168.0.1  192.168.0.175  255.255.255.0  192.168.0.1  68.105.29.11, 68.105.28.12  -
+|         192.168.0.1  192.168.0.175  255.255.255.0  192.168.0.1  68.105.29.11, 68.105.28.12  -
+|         192.168.0.1  192.168.0.175  255.255.255.0  192.168.0.1  68.105.29.11, 68.105.28.12  -
+|       MDNS
+|         Generic
+|           ip             ipv6  name
+|_          192.168.0.193        193.0.168.192.in-addr.arpa
+| targets-ipv6-multicast-invalid-dst: 
+|   IP: 2600:8807:2680:7bc0::3c13                MAC: 04:70:56:54:56:fa  IFACE: wlan0
+|   IP: 2600:8807:2680:7bc0:da3a:ddff:fe98:e487  MAC: d8:3a:dd:98:e4:87  IFACE: wlan0
+|   IP: fe80::845:d25a:81e7:a5c2                 MAC: 16:09:01:19:56:ff  IFACE: eth0
+|   IP: 2600:8807:2680:7bc0::1fd2                MAC: d8:3a:dd:8a:bb:fb  IFACE: wlan0
+|   IP: fe80::a2a2:51f7:af5f:4a4                 MAC: d8:3a:dd:8a:bb:fb  IFACE: eth0
+|_  Use --script-args=newtargets to add the results as targets
+|_mrinfo: ERROR: Script execution failed (use -d to debug)
+|_broadcast-eigrp-discovery: ERROR: Script execution failed (use -d to debug)
+| broadcast-upnp-info: 
+|   192.168.0.83: 
+|     usn: uuid:35e39e59-62f9-4c0a-8e06-49e5ea2ba306
+|     location: http://192.168.0.83:42153/35e39e59-62f9-4c0a-8e06-49e5ea2ba306.xml
+|_    server: Linux/6.19.14+kali-amd64 UPnP/1.0 GUPnP/1.6.9
+|_hostmap-robtex: *TEMPORARILY DISABLED* due to changes in Robtex's API. See https://www.robtex.com/api/
+| targets-ipv6-multicast-echo: 
+|   IP: fe80::a2a2:51f7:af5f:4a4                 MAC: d8:3a:dd:8a:bb:fb  IFACE: eth0
+|   IP: 2600:8807:2680:7bc0:12e1:77ff:fe2b:be8d  MAC: 10:e1:77:2b:be:8d  IFACE: wlan0
+|   IP: fe80::12e1:77ff:fe2b:be8d                MAC: 10:e1:77:2b:be:8d  IFACE: wlan0
+|   IP: 2600:8807:2680:7bc0::1fd2                MAC: d8:3a:dd:8a:bb:fb  IFACE: wlan0
+|_  Use --script-args=newtargets to add the results as targets
+| targets-asn: 
+|_  targets-asn.asn is a mandatory parameter
+|_broadcast-pppoe-discover: ERROR: Script execution failed (use -d to debug)
+|_broadcast-ospf2-discover: ERROR: Script execution failed (use -d to debug)
+|_broadcast-pim-discovery: ERROR: Script execution failed (use -d to debug)
+| broadcast-dhcp-discover: 
+|   Response 1 of 2: 
+|     Interface: wlan0
+|     IP Offered: 192.168.0.175
+|     Server Identifier: 192.168.0.1
+|     Subnet Mask: 255.255.255.0
+|     Broadcast Address: 192.168.0.255
+|     Router: 192.168.0.1
+|     Domain Name Server: 68.105.29.11, 68.105.28.12
+|   Response 2 of 2: 
+|     Interface: eth0
+|     IP Offered: 192.168.0.175
+|     Server Identifier: 192.168.0.1
+|     Subnet Mask: 255.255.255.0
+|     Broadcast Address: 192.168.0.255
+|     Router: 192.168.0.1
+|_    Domain Name Server: 68.105.29.11, 68.105.28.12
+Nmap scan report for 192.168.0.1
+Host is up (0.0072s latency).
+Skipping host 192.168.0.1 due to host timeout
+Nmap scan report for 192.168.0.121
+Host is up (0.025s latency).
+
+PORT      STATE  SERVICE       VERSION
+22/tcp    closed ssh
+80/tcp    closed http
+139/tcp   closed netbios-ssn
+443/tcp   closed https
+445/tcp   closed microsoft-ds
+3000/tcp  closed ppp
+3030/tcp  closed arepa-cas
+3389/tcp  closed ms-wbt-server
+5432/tcp  closed postgresql
+6379/tcp  closed redis
+8080/tcp  closed http-proxy
+8443/tcp  closed https-alt
+11434/tcp closed ollama
+MAC Address: D0:3F:27:B5:DC:EA (Wyze Labs)
+
+Host script results:
+|_path-mtu: PMTU == 1500
+| unusual-port: 
+|_  WARNING: this script depends on Nmap's service/version detection (-sV)
+|_fcrdns: FAIL (No PTR record)
+| port-states: 
+|   tcp: 
+|_    closed: 22,80,139,443,445,3000,3030,3389,5432,6379,8080,8443,11434
+| dns-blacklist: 
+|   SPAM
+|     l2.apews.org - FAIL
+|_    list.quorum.to - SPAM
+|_ipidseq: All zeros
+
+Nmap scan report for 192.168.0.162
+Host is up (0.010s latency).
+
+PORT      STATE    SERVICE       VERSION
+22/tcp    open     ssh           Dropbear sshd 2025.89 (protocol 2.0)
+|_banner: SSH-2.0-dropbear_2025.89\x0D\x0A\x00\x00\x02\x1C\x07\x14\xDB...
+| ssh2-enum-algos: 
+|   kex_algorithms: (11)
+|   server_host_key_algorithms: (3)
+|   encryption_algorithms: (3)
+|   mac_algorithms: (1)
+|   compression_algorithms_client_to_server: (1)
+|_  compression_algorithms_server_to_client: (3)
+80/tcp    filtered http
+139/tcp   closed   netbios-ssn
+443/tcp   filtered https
+445/tcp   closed   microsoft-ds
+3000/tcp  closed   ppp
+3030/tcp  closed   arepa-cas
+3389/tcp  closed   ms-wbt-server
+5432/tcp  closed   postgresql
+6379/tcp  closed   redis
+8080/tcp  filtered http-proxy
+8443/tcp  closed   https-alt
+11434/tcp closed   ollama
+MAC Address: D8:3A:DD:98:E4:87 (Raspberry Pi Trading)
+Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
+
+Host script results:
+| port-states: 
+|   tcp: 
+|     open: 22
+|     filtered: 80,443,8080
+|_    closed: 139,445,3000,3030,3389,5432,6379,8443,11434
+| qscan: 
+| PORT  FAMILY  MEAN (us)  STDDEV   LOSS (%)
+| 22    0       3473.50    930.11   0.0%
+|_139   1       4490.30    1162.51  0.0%
+| dns-blacklist: 
+|   SPAM
+|     l2.apews.org - FAIL
+|_    list.quorum.to - SPAM
+|_path-mtu: PMTU == 1500
+|_fcrdns: FAIL (No PTR record)
+|_ipidseq: All zeros
+
+Nmap scan report for 192.168.0.189
+Host is up (0.0093s latency).
+
+PORT      STATE    SERVICE       VERSION
+22/tcp    open     ssh           OpenSSH 10.0p2 Debian 7+deb13u4 (protocol 2.0)
+| vulners: 
+|   cpe:/a:openbsd:openssh:10.0p2: 
+|     	CVE-2026-35414	8.1	https://vulners.com/cve/CVE-2026-35414
+|     	CVE-2026-35386	8.1	https://vulners.com/cve/CVE-2026-35386
+|     	CVE-2026-35385	8.1	https://vulners.com/cve/CVE-2026-35385
+|     	CVE-2026-35387	6.5	https://vulners.com/cve/CVE-2026-35387
+|     	CVE-2025-61985	3.6	https://vulners.com/cve/CVE-2025-61985
+|     	CVE-2025-61984	3.6	https://vulners.com/cve/CVE-2025-61984
+|     	B7EACB4F-A5CF-5C5A-809F-E03CCE2AB150	3.6	https://vulners.com/githubexploit/B7EACB4F-A5CF-5C5A-809F-E03CCE2AB150	*EXPLOIT*
+|     	4C6E2182-0E99-5626-83F6-1646DD648C57	3.6	https://vulners.com/githubexploit/4C6E2182-0E99-5626-83F6-1646DD648C57	*EXPLOIT*
+|_    	CVE-2026-35388	2.5	https://vulners.com/cve/CVE-2026-35388
+|_banner: SSH-2.0-OpenSSH_10.0p2 Debian-7+deb13u4
+| ssh2-enum-algos: 
+|   kex_algorithms: (10)
+|   server_host_key_algorithms: (4)
+|   encryption_algorithms: (6)
+|   mac_algorithms: (10)
+|_  compression_algorithms: (2)
+80/tcp    filtered http
+139/tcp   closed   netbios-ssn
+443/tcp   filtered https
+445/tcp   closed   microsoft-ds
+3000/tcp  closed   ppp
+3030/tcp  closed   arepa-cas
+3389/tcp  closed   ms-wbt-server
+5432/tcp  closed   postgresql
+6379/tcp  closed   redis
+8080/tcp  filtered http-proxy
+8443/tcp  closed   https-alt
+11434/tcp closed   ollama
+MAC Address: D8:3A:DD:8A:BB:FB (Raspberry Pi Trading)
+Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
+
+Host script results:
+|_ipidseq: All zeros
+| dns-blacklist: 
+|   SPAM
+|     l2.apews.org - FAIL
+|_    list.quorum.to - SPAM
+| port-states: 
+|   tcp: 
+|     open: 22
+|     filtered: 80,443,8080
+|_    closed: 139,445,3000,3030,3389,5432,6379,8443,11434
+| qscan: 
+| PORT  FAMILY  MEAN (us)  STDDEV   LOSS (%)
+| 22    0       4765.80    2061.94  0.0%
+|_139   0       5935.70    4403.93  0.0%
+|_fcrdns: FAIL (No PTR record)
+|_path-mtu: PMTU == 1500
+
+Nmap scan report for 192.168.0.192
+Host is up (0.0092s latency).
+Skipping host 192.168.0.192 due to host timeout
+Nmap scan report for 192.168.0.193
+Host is up (0.014s latency).
+
+PORT      STATE  SERVICE       VERSION
+22/tcp    closed ssh
+80/tcp    closed http
+139/tcp   closed netbios-ssn
+443/tcp   closed https
+445/tcp   closed microsoft-ds
+3000/tcp  open   tcpwrapped
+|_unusual-port: tcpwrapped unexpected on port tcp/3000
+3030/tcp  closed arepa-cas
+3389/tcp  closed ms-wbt-server
+5432/tcp  closed postgresql
+6379/tcp  closed redis
+8080/tcp  closed http-proxy
+8443/tcp  closed https-alt
+11434/tcp closed ollama
+MAC Address: 04:70:56:54:56:FA (Arcadyan)
+
+Host script results:
+| port-states: 
+|   tcp: 
+|     open: 3000
+|_    closed: 22,80,139,443,445,3030,3389,5432,6379,8080,8443,11434
+|_ipidseq: All zeros
+| dns-blacklist: 
+|   SPAM
+|     list.quorum.to - SPAM
+|_    l2.apews.org - FAIL
+|_fcrdns: FAIL (No PTR record)
+|_path-mtu: PMTU == 1500
+| qscan: 
+| PORT  FAMILY  MEAN (us)  STDDEV   LOSS (%)
+| 22    0       6664.30    2088.11  0.0%
+|_3000  0       7790.50    3190.98  0.0%
+
+Nmap scan report for 192.168.0.210
+Host is up (0.014s latency).
+
+Bug in http-security-headers: no string output.
+PORT      STATE  SERVICE       VERSION
+22/tcp    closed ssh
+80/tcp    closed http
+139/tcp   closed netbios-ssn
+443/tcp   closed https
+445/tcp   closed microsoft-ds
+3000/tcp  closed ppp
+3030/tcp  closed arepa-cas
+3389/tcp  closed ms-wbt-server
+5432/tcp  closed postgresql
+6379/tcp  closed redis
+8080/tcp  open   http          lighttpd
+|_http-server-header: WebServer
+| http-slowloris-check: 
+|   VULNERABLE:
+|   Slowloris DOS attack
+|     State: LIKELY VULNERABLE
+|     IDs:  CVE:CVE-2007-6750
+|       Slowloris tries to keep many connections to the target web server open and hold
+|       them open as long as possible.  It accomplishes this by opening connections to
+|       the target web server and sending a partial request. By doing so, it starves
+|       the http server's resources causing Denial Of Service.
+|       
+|     Disclosure date: 2009-09-17
+|     References:
+|       https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2007-6750
+|_      http://ha.ckers.org/slowloris/
+|_http-fetch: Please enter the complete path of the directory to save data in.
+|_http-xssed: No previously reported XSS vuln.
+| http-headers: 
+|   Access-Control-Allow-Origin: *
+|   Access-Control-Allow-Headers: Content-Type
+|   Content-Type: text/html
+|   Content-Length: 345
+|   Connection: close
+|   Date: Sat, 23 May 2026 06:13:42 GMT
+|   Server: WebServer
+|   
+|_  (Request type: GET)
+| http-useragent-tester: 
+|   Status for browser useragent: 404
+|   Allowed User Agents: 
+|     Mozilla/5.0 (compatible; Nmap Scripting Engine; https://nmap.org/book/nse.html)
+|     libwww
+|     lwp-trivial
+|     libcurl-agent/1.0
+|     PHP/
+|     Python-urllib/2.5
+|     GT::WWW
+|     Snoopy
+|     MFC_Tear_Sample
+|     HTTP::Lite
+|     PHPCrawl
+|     URI::Fetch
+|     Zend_Http_Client
+|     http client
+|     PECL::HTTP
+|     Wget/1.13.4 (linux-gnu)
+|_    WWW-Mechanize/1.34
+|_http-referer-checker: Couldn't find any cross-domain scripts.
+|_http-comments-displayer: Couldn't find any comments.
+|_http-date: Sat, 23 May 2026 06:13:38 GMT; -16s from local time.
+|_http-title: 404 - Not Found
+|_http-mobileversion-checker: No mobile version detected.
+8443/tcp  closed https-alt
+11434/tcp closed ollama
+MAC Address: 80:47:86:91:3C:6E (Samsung Electronics)
+
+Host script results:
+| port-states: 
+|   tcp: 
+|     open: 8080
+|_    closed: 22,80,139,443,445,3000,3030,3389,5432,6379,8443,11434
+| dns-blacklist: 
+|   SPAM
+|     l2.apews.org - FAIL
+|_    list.quorum.to - SPAM
+|_path-mtu: PMTU == 1500
+|_fcrdns: FAIL (No PTR record)
+| qscan: 
+| PORT  FAMILY  MEAN (us)  STDDEV    LOSS (%)
+| 22    0       19004.50   19796.06  0.0%
+|_8080  0       37372.80   46825.01  0.0%
+|_clock-skew: -16s
+|_ipidseq: All zeros
+
+Nmap scan report for 192.168.0.37
+Host is up (0.0092s latency).
+
+PORT      STATE    SERVICE       VERSION
+22/tcp    filtered ssh
+80/tcp    filtered http
+139/tcp   filtered netbios-ssn
+443/tcp   filtered https
+445/tcp   filtered microsoft-ds
+3000/tcp  filtered ppp
+3030/tcp  filtered arepa-cas
+3389/tcp  filtered ms-wbt-server
+5432/tcp  filtered postgresql
+6379/tcp  filtered redis
+8080/tcp  filtered http-proxy
+8443/tcp  filtered https-alt
+11434/tcp filtered ollama
+MAC Address: 28:EA:0B:76:4F:91 (Microsoft)
+
+Host script results:
+| dns-blacklist: 
+|   SPAM
+|     l2.apews.org - FAIL
+|_    list.quorum.to - SPAM
+|_fcrdns: FAIL (No PTR record)
+| unusual-port: 
+|_  WARNING: this script depends on Nmap's service/version detection (-sV)
+| port-states: 
+|   tcp: 
+|_    filtered: 22,80,139,443,445,3000,3030,3389,5432,6379,8080,8443,11434
+
+Nmap scan report for 192.168.0.70
+Host is up (0.010s latency).
+
+PORT      STATE  SERVICE       VERSION
+22/tcp    open   ssh           OpenSSH for_Windows_9.5 (protocol 2.0)
+| ssh2-enum-algos: 
+|   kex_algorithms: (10)
+|   server_host_key_algorithms: (4)
+|   encryption_algorithms: (6)
+|   mac_algorithms: (8)
+|_  compression_algorithms: (2)
+|_banner: SSH-2.0-OpenSSH_for_Windows_9.5
+80/tcp    closed http
+139/tcp   open   netbios-ssn   Microsoft Windows netbios-ssn
+443/tcp   closed https
+445/tcp   open   microsoft-ds?
+3000/tcp  closed ppp
+3030/tcp  closed arepa-cas
+3389/tcp  open   ms-wbt-server
+|_ssl-date: TLS randomness does not represent time
+| rdp-ntlm-info: 
+|   Target_Name: DESKTOP-UT6339R
+|   NetBIOS_Domain_Name: DESKTOP-UT6339R
+|   NetBIOS_Computer_Name: DESKTOP-UT6339R
+|   DNS_Domain_Name: DESKTOP-UT6339R
+|   DNS_Computer_Name: DESKTOP-UT6339R
+|   Product_Version: 10.0.26100
+|_  System_Time: 2026-05-23T06:13:55+00:00
+| ssl-cert: Subject: commonName=DESKTOP-UT6339R
+| Not valid before: 2026-05-14T01:15:28
+|_Not valid after:  2026-11-13T01:15:28
+| rdp-enum-encryption: 
+|   Security layer
+|     CredSSP (NLA): SUCCESS
+|     CredSSP with Early User Auth: SUCCESS
+|_    RDSTLS: SUCCESS
+5432/tcp  closed postgresql
+6379/tcp  closed redis
+8080/tcp  closed http-proxy
+8443/tcp  closed https-alt
+11434/tcp closed ollama
+1 service unrecognized despite returning data. If you know the service/version, please submit the following fingerprint at https://nmap.org/cgi-bin/submit.cgi?new-service :
+SF-Port3389-TCP:V=7.99%I=7%D=5/23%Time=6A11454E%P=x86_64-pc-linux-gnu%r(Te
+SF:rminalServerCookie,13,"\x03\0\0\x13\x0e\xd0\0\0\x124\0\x02/\x08\0\x02\0
+SF:\0\0");
+MAC Address: 16:09:01:19:56:FF (Unknown)
+Service Info: OS: Windows; CPE: cpe:/o:microsoft:windows
+
+Host script results:
+| qscan: 
+| PORT  FAMILY  MEAN (us)  STDDEV   LOSS (%)
+| 22    0       4778.10    1840.29  0.0%
+| 80    0       6057.20    4846.36  0.0%
+| 139   0       6262.00    5251.22  0.0%
+| 445   0       4246.50    1279.52  0.0%
+|_3389  1       3242.70    837.24   0.0%
+| dns-blacklist: 
+|   SPAM
+|     list.quorum.to - SPAM
+|     l2.apews.org - FAIL
+|_    bl.nszones.com - SPAM
+| port-states: 
+|   tcp: 
+|     open: 22,139,445,3389
+|_    closed: 80,443,3000,3030,5432,6379,8080,8443,11434
+|_nbstat: NetBIOS name: DESKTOP-UT6339R, NetBIOS user: <unknown>, NetBIOS MAC: 16:09:01:19:56:ff (unknown)
+|_msrpc-enum: Could not negotiate a connection:SMB: Failed to receive bytes: ERROR
+|_fcrdns: FAIL (No PTR record)
+| smb-protocols: 
+|   dialects: 
+|     2.0.2
+|     2.1
+|     3.0
+|     3.0.2
+|_    3.1.1
+| smb-mbenum: 
+|_  ERROR: Failed to connect to browser service: Could not negotiate a connection:SMB: Failed to receive bytes: ERROR
+| smb2-security-mode: 
+|   3.1.1: 
+|_    Message signing enabled and required
+|_path-mtu: PMTU == 1500
+|_ipidseq: Incremental!
+| smb2-capabilities: 
+|   2.0.2: 
+|     Distributed File System
+|   2.1: 
+|     Distributed File System
+|     Leasing
+|     Multi-credit operations
+|   3.0: 
+|     Distributed File System
+|     Leasing
+|     Multi-credit operations
+|   3.0.2: 
+|     Distributed File System
+|     Leasing
+|     Multi-credit operations
+|   3.1.1: 
+|     Distributed File System
+|     Leasing
+|_    Multi-credit operations
+| smb2-time: 
+|   date: 2026-05-23T06:13:59
+|_  start_date: N/A
+
+Nmap scan report for 192.168.0.83
+Host is up (0.000030s latency).
+
+PORT      STATE    SERVICE      VERSION
+22/tcp    open     ssh          OpenSSH 10.3p1 Debian 1 (protocol 2.0)
+|_banner: SSH-2.0-OpenSSH_10.3p1 Debian-1
+| ssh2-enum-algos: 
+|   kex_algorithms: (10)
+|   server_host_key_algorithms: (4)
+|   encryption_algorithms: (6)
+|   mac_algorithms: (10)
+|_  compression_algorithms: (2)
+80/tcp    filtered http
+139/tcp   filtered netbios-ssn
+443/tcp   filtered https
+445/tcp   filtered microsoft-ds
+3000/tcp  filtered ppp
+3030/tcp  filtered arepa-cas
+3389/tcp  open     tcpwrapped
+|_unusual-port: tcpwrapped unexpected on port tcp/3389
+|_ssl-ccs-injection: No reply from server (TIMEOUT)
+| rdp-ntlm-info: 
+|   Target_Name: CYBERVISER
+|   NetBIOS_Domain_Name: CYBERVISER
+|   NetBIOS_Computer_Name: CYBERVISER
+|   DNS_Domain_Name: CYBERVISER
+|   DNS_Computer_Name: CYBERVISER
+|   Product_Version: 10.0.22631
+|_  System_Time: 2026-05-23T06:15:20+00:00
+| rdp-enum-encryption: 
+|   Security layer
+|_    CredSSP (NLA): SUCCESS
+5432/tcp  filtered postgresql
+6379/tcp  filtered redis
+8080/tcp  filtered http-proxy
+8443/tcp  filtered https-alt
+11434/tcp filtered ollama
+Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
+
+Host script results:
+|_ipidseq: All zeros
+| qscan: 
+| PORT  FAMILY  MEAN (us)  STDDEV  LOSS (%)
+| 22    0       116.40     14.90   0.0%
+|_3389  0       122.20     11.70   0.0%
+| dns-blacklist: 
+|   SPAM
+|     l2.apews.org - FAIL
+|_    list.quorum.to - SPAM
+|_path-mtu: ERROR: Script execution failed (use -d to debug)
+| port-states: 
+|   tcp: 
+|     open: 22,3389
+|_    filtered: 80,139,443,445,3000,3030,5432,6379,8080,8443,11434
+|_fcrdns: FAIL (No PTR record)
+
+Post-scan script results:
+| reverse-index: 
+|   22/tcp: 192.168.0.70, 192.168.0.83, 192.168.0.162, 192.168.0.189, 192.168.0.192
+|   80/tcp: 192.168.0.192
+|   139/tcp: 192.168.0.70
+|   443/tcp: 192.168.0.192
+|   445/tcp: 192.168.0.70
+|   3000/tcp: 192.168.0.193
+|   3389/tcp: 192.168.0.70, 192.168.0.83
+|_  8080/tcp: 192.168.0.192, 192.168.0.210
+| duplicates: 
+|   ARP
+|       MAC: d8:3a:dd:8a:bb:fb
+|           192.168.0.189
+|_          192.168.0.192
+| clock-skew: 
+|   0s: 
+|     192.168.0.70
+|     192.168.0.192
+|_    192.168.0.83
+Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+# Nmap done at Sat May 23 01:15:30 2026 -- 10 IP addresses (10 hosts up) scanned in 235.59 seconds

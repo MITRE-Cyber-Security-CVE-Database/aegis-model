@@ -1,0 +1,149 @@
+# Ollama models
+NAME                               ID              SIZE      MODIFIED       
+aegis:latest                       281f413731ad    4.4 GB    25 minutes ago    
+hancock-auditor:latest             2a8b28ed2072    4.4 GB    13 hours ago      
+cujo:latest                        34ea9d9ea2f6    4.4 GB    3 weeks ago       
+qwen2.5-coder:3b                   f72c60cabf62    1.9 GB    3 weeks ago       
+qwen2.5-coder:7b-instruct          dae161e27b0e    4.7 GB    3 weeks ago       
+gemma3:4b                          a2af6cc3eb7f    3.3 GB    3 weeks ago       
+qwen2.5:3b                         357c53fb659c    1.9 GB    3 weeks ago       
+llama3.2:3b                        a80c4f17acd5    2.0 GB    3 weeks ago       
+hancock:latest                     a27992686108    4.4 GB    3 weeks ago       
+mistral:7b-instruct-v0.3-q4_K_M    6577803aa9a0    4.4 GB    3 weeks ago       
+
+# Docker containers (all states)
+CONTAINER ID   IMAGE                            STATUS                 PORTS                                                                                  NAMES
+edf6a74c3bac   mcp/fetch                        Up 30 minutes                                                                                                 funny_kapitsa
+810853baafd4   mcp/git                          Up 30 minutes                                                                                                 cool_driscoll
+64202699b6cf   hashicorp/terraform-mcp-server   Up 30 minutes                                                                                                 practical_wu
+67f73ad9933b   gitea/act_runner:0.2.11          Up 2 hours                                                                                                    aegis-gitea-runner
+cab6ca0d11b2   gitea/gitea:1.22                 Up 2 hours             0.0.0.0:2222->22/tcp, [::]:2222->22/tcp, 0.0.0.0:3030->3000/tcp, [::]:3030->3000/tcp   aegis-gitea
+7a7cb2833b46   artificial-autism:latest         Up 4 hours             8080/tcp, 0.0.0.0:8080->5000/tcp, [::]:8080->5000/tcp                                  artificial-autism
+375f9001cc4d   glasseye-ai:latest               Up 4 hours             0.0.0.0:7070->7070/tcp, [::]:7070->7070/tcp                                            glasseye-ai
+b303f111c893   glassseyeos-glasseye             Up 4 hours (healthy)   0.0.0.0:9090->9090/tcp, [::]:9090->9090/tcp                                            glassseyeos-glasseye-1
+5c1a307f31de   grafana/grafana:latest           Up 4 hours             0.0.0.0:3000->3000/tcp, [::]:3000->3000/tcp                                            glassseyeos-grafana-1
+b90c9e1f6d71   postgres:16-alpine               Up 4 hours (healthy)   0.0.0.0:5432->5432/tcp, [::]:5432->5432/tcp                                            glassseyeos-postgres-1
+20f7e04ae271   redis:7-alpine                   Up 4 hours (healthy)   0.0.0.0:6379->6379/tcp, [::]:6379->6379/tcp                                            glassseyeos-redis-1
+7542eff21f52   prom/prometheus:latest           Up 4 hours             0.0.0.0:9091->9090/tcp, [::]:9091->9090/tcp                                            glassseyeos-prometheus-1
+ff927bde6a65   hancock:latest                   Up 4 hours (healthy)   0.0.0.0:5000->5000/tcp, [::]:5000->5000/tcp                                            hancock-agent
+
+# Docker images
+REPOSITORY:TAG                          SIZE      CREATED
+artificial-autism:latest                2.02GB    4 hours ago
+glasseye-ai:latest                      221MB     4 hours ago
+glassseyeos-glasseye:latest             1.01GB    4 hours ago
+glasseye-os:latest                      1GB       4 hours ago
+hancock:latest                          816MB     4 hours ago
+mcp/fetch:latest                        433MB     5 days ago
+postgres:16-alpine                      396MB     8 days ago
+grafana/grafana:latest                  1.46GB    10 days ago
+redis:7-alpine                          57.8MB    2 weeks ago
+hashicorp/terraform-mcp-server:latest   28.1MB    3 weeks ago
+prom/prometheus:latest                  578MB     3 weeks ago
+node:20-bullseye                        1.47GB    4 weeks ago
+mcp/git:latest                          477MB     11 months ago
+gitea/gitea:1.22                        242MB     17 months ago
+gitea/act_runner:0.2.11                 61.6MB    20 months ago
+
+# Docker volumes
+DRIVER    VOLUME NAME
+local     act-toolcache
+local     gitea_gitea-data
+local     gitea_runner-data
+local     glassseyeos_grafana-data
+local     glassseyeos_postgres-data
+local     glassseyeos_prometheus-data
+local     glassseyeos_redis-data
+
+# Docker networks
+NETWORK ID     NAME                  DRIVER    SCOPE
+5e6e25e77c38   bridge                bridge    local
+ea4509c52de0   gitea_default         bridge    local
+e2b2552c5fdd   glassseyeos_default   bridge    local
+75075fbb1505   host                  host      local
+008ebcbcf9f9   none                  null      local
+b2522fb0e281   tmp_default           bridge    local
+
+# Kubectl contexts
+CURRENT   NAME      CLUSTER   AUTHINFO   NAMESPACE
+*         default   default   default    
+
+# Kubectl current cluster nodes
+NAME           STATUS     ROLES           AGE     VERSION        INTERNAL-IP     EXTERNAL-IP   OS-IMAGE                       KERNEL-VERSION       CONTAINER-RUNTIME
+cyberviser     Ready      ml-inference    43h     v1.35.4+k3s1   192.168.0.83    <none>        Kali GNU/Linux Rolling         6.19.14+kali-amd64   containerd://2.2.3-k3s1
+dietpi         Ready      <none>          3d17h   v1.35.4+k3s1   192.168.0.162   <none>        Debian GNU/Linux 13 (trixie)   6.18.29+rpt-rpi-v8   containerd://2.2.3-k3s1
+glassworker2   NotReady   <none>          3d16h   v1.35.4+k3s1   192.168.0.163   <none>        Debian GNU/Linux 13 (trixie)   6.18.29+rpt-rpi-v8   containerd://2.2.3-k3s1
+raspberrypi    Ready      control-plane   3d20h   v1.35.4+k3s1   192.168.0.189   <none>        Debian GNU/Linux 13 (trixie)   6.18.29+rpt-rpi-v8   containerd://2.2.3-k3s1
+
+# Python (system) top packages
+
+# APT installed (count + top categories)
+6147
+
+# /opt contents
+total 92
+drwxr-xr-x 23 root     root     4096 May 10 00:29 .
+drwxr-xr-x 21 root     root     4096 May 23 00:08 ..
+drwxr-xr-x  2 root     root     4096 Apr 29 05:24 5ire
+drwxr-xr-x  3 root     root     4096 Apr 30 04:15 brave.com
+drwxr-xr-x 10 root     root     4096 Jan 21  1970 clion-2026.1.1
+drwx--x--x  4 root     root     4096 Apr 30 07:00 containerd
+drwxr-xr-x  8 root     root     4096 Jan 21  1970 DataGrip-2026.1.3
+drwxr-xr-x  9 root     root     4096 Jan 21  1970 dataspell-2026.1.1
+drwxr-xr-x  4 root     root     4096 Apr 20 12:05 Discord
+drwxr-xr-x  3 root     root     4096 Apr 25 16:05 firmware-mod-kit
+drwxr-xr-x  9 root     root     4096 Jan 21  1970 GoLand-2026.1.1
+drwxr-xr-x  3 root     root     4096 May  3 11:32 google
+drwxr-xr-x 11 x        x        4096 Apr 30 13:33 idea-IU-261.23567.138
+drwxr-xr-x  9 root     root     4096 Jan 21  1970 JetBrains Rider-2026.1.1
+drwxr-xr-x  3 root     root     4096 Apr 25 16:07 microsoft
+drwxr-xr-x  9 root     root     4096 Jan 21  1970 PhpStorm-261.23567.149
+drwxr-xr-x 10 root     root     4096 Jan 21  1970 pycharm-2026.1.1
+drwxr-xr-x  9 root     root     4096 Jan 21  1970 RubyMine-2026.1.1
+drwxr-xr-x  8 root     root     4096 Jan 21  1970 RustRover-2026.1.1
+drwxr-xr-x  3 root     root     4096 May 10 00:29 swift-6.1-RELEASE-debian12
+drwxr-xr-x  7 root     root     4096 Apr 25 16:10 Teeth
+drwxr-xr-x  9 root     root     4096 Jan 21  1970 WebStorm-261.23567.141
+drwxr-xr-x  7 www-data www-data 4096 May 16 19:16 xplico
+
+# /usr/local/bin custom binaries
+5ire
+aws
+aws_completer
+cbor2
+cloudflared
+codex
+copilot
+crytic-compile
+Discord
+git-lfs
+git-xet
+glasseye
+hancock
+idea
+k3s
+k3s-agent-uninstall.sh
+k3s-killall.sh
+mythos
+mythos-router
+ollama
+openmythos-run
+slither
+slither-check-erc
+slither-check-kspec
+slither-check-upgradeability
+slither-doctor
+slither-documentation
+slither-find-paths
+slither-flat
+slither-format
+slither-interface
+slither-mutate
+slither-prop
+slither-read-storage
+slither-simil
+solc
+solcjs
+solc-select
+subzy
+swa

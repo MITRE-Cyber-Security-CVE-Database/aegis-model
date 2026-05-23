@@ -1,12 +1,13 @@
 
-# Python
-__pycache__/
-*.pyc
-*.pyo
-*.pyd
-
+.aegis-venv/
 # AutoBench artifacts
 bench/autobench/results/
-.aegis-venv/
-
 .gitea-token
+*.pyc
+__pycache__/
+*.pyd
+*.pyo
+# Python
+recon/inventory/*/cloud/aws_iam_users.json
+recon/inventory/*/cloud/aws_identity.json
+recon/inventory/*/secrets_audit.txt

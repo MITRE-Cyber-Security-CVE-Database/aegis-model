@@ -1,0 +1,31 @@
+# Nmap 7.99 scan initiated Sat May 23 01:10:52 2026 as: /usr/lib/nmap/nmap --privileged -sn -n -T4 --max-retries 1 -oG /home/x/aegis-model/recon/inventory/20260523T061049Z/nmap_ping.gnmap -oN /home/x/aegis-model/recon/inventory/20260523T061049Z/nmap_ping.txt 192.168.0.0/24
+Nmap scan report for 192.168.0.1
+Host is up (0.0086s latency).
+MAC Address: 10:E1:77:2B:BE:8D (Commscope)
+Nmap scan report for 192.168.0.37
+Host is up (0.010s latency).
+MAC Address: 28:EA:0B:76:4F:91 (Microsoft)
+Nmap scan report for 192.168.0.70
+Host is up (0.011s latency).
+MAC Address: 16:09:01:19:56:FF (Unknown)
+Nmap scan report for 192.168.0.121
+Host is up (0.020s latency).
+MAC Address: D0:3F:27:B5:DC:EA (Wyze Labs)
+Nmap scan report for 192.168.0.162
+Host is up (0.014s latency).
+MAC Address: D8:3A:DD:98:E4:87 (Raspberry Pi Trading)
+Nmap scan report for 192.168.0.189
+Host is up (0.0082s latency).
+MAC Address: D8:3A:DD:8A:BB:FB (Raspberry Pi Trading)
+Nmap scan report for 192.168.0.192
+Host is up (0.0099s latency).
+MAC Address: D8:3A:DD:8A:BB:FC (Raspberry Pi Trading)
+Nmap scan report for 192.168.0.193
+Host is up (0.017s latency).
+MAC Address: 04:70:56:54:56:FA (Arcadyan)
+Nmap scan report for 192.168.0.210
+Host is up (0.0071s latency).
+MAC Address: 80:47:86:91:3C:6E (Samsung Electronics)
+Nmap scan report for 192.168.0.83
+Host is up.
+# Nmap done at Sat May 23 01:10:55 2026 -- 256 IP addresses (10 hosts up) scanned in 3.51 seconds

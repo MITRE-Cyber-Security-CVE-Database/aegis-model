@@ -1,0 +1,22 @@
+Filesystem     Type      Size  Used Avail Use% Mounted on
+udev           devtmpfs  9.3G     0  9.3G   0% /dev
+tmpfs          tmpfs     1.9G  4.1M  1.9G   1% /run
+/dev/nvme0n1p2 ext4      221G  189G   21G  91% /
+tmpfs          tmpfs     9.5G  114M  9.4G   2% /dev/shm
+efivarfs       efivarfs  148K  101K   43K  71% /sys/firmware/efi/efivars
+none           tmpfs     1.0M     0  1.0M   0% /run/credentials/systemd-journald.service
+/dev/loop0     squashfs   50M   50M     0 100% /snap/snapd/26865
+/dev/loop5     squashfs  1.3G  1.3G     0 100% /snap/goland/484
+/dev/loop3     squashfs  1.3G  1.3G     0 100% /snap/goland/474
+/dev/loop8     squashfs   74M   74M     0 100% /snap/core22/2411
+/dev/loop7     squashfs  1.2G  1.2G     0 100% /snap/webstorm/601
+/dev/loop9     squashfs  1.2G  1.2G     0 100% /snap/webstorm/619
+/dev/loop2     squashfs  1.3G  1.3G     0 100% /snap/pycharm-professional/628
+/dev/loop4     squashfs  1.3G  1.3G     0 100% /snap/pycharm-professional/610
+/dev/loop1     squashfs  2.1G  2.1G     0 100% /snap/rider/726
+/dev/loop6     squashfs  1.2G  1.2G     0 100% /snap/datagrip/272
+tmpfs          tmpfs     9.5G  571M  8.9G   6% /tmp
+/dev/nvme0n1p1 vfat      975M  460K  974M   1% /boot/efi
+/dev/sdb4      exfat     364G  364G  128K 100% /mnt/backup-hdd
+/dev/sdb1      ext4      492G  168G  299G  36% /mnt/kaliroot
+tmpfs          tmpfs     1.9G   14M  1.9G   1% /run/user/1000
