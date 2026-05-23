@@ -69,13 +69,27 @@ def load_grader(task_dir: Path):
     return getattr(mod, "grade", None)
 
 
-def load_agent(name: str):
+def load_agent(name: str, model: str | None = None):
     if name == "ollama":
         from adapters.ollama_agent import OllamaAgent
-        return OllamaAgent()
+        return OllamaAgent(model=model or "aegis:latest")
     if name == "noop":
         return _NoopAgent()
     raise ValueError(f"unknown agent: {name}")
+
+
+def seed_fixtures(task_dir: Path, work_dir: Path):
+    """Copy any files from <task>/fixtures/ into the agent's work_dir."""
+    fx = task_dir / "fixtures"
+    if not fx.exists():
+        return
+    import shutil
+    for item in fx.iterdir():
+        dst = work_dir / item.name
+        if item.is_dir():
+            shutil.copytree(item, dst, dirs_exist_ok=True)
+        else:
+            shutil.copy2(item, dst)
 
 
 class _NoopAgent:
@@ -96,6 +110,8 @@ def run_one(task_dir: Path, agent) -> dict:
     grader = load_grader(task_dir)
     work_dir = Path("/tmp") / f"autobench-work-{task_dir.name}-{int(time.time())}"
     work_dir.mkdir(parents=True, exist_ok=True)
+
+    seed_fixtures(task_dir, work_dir)
 
     t0 = time.time()
     response = agent.run_task(spec, str(work_dir))
@@ -148,6 +164,7 @@ def main():
     p.add_argument("--category", help="run all tasks in a category")
     p.add_argument("--all", action="store_true", help="run all tasks")
     p.add_argument("--agent", default="noop", help="agent adapter (ollama, noop)")
+    p.add_argument("--model", help="model name (for ollama adapter)")
     p.add_argument("--report", help="write JSON report to path")
     args = p.parse_args()
 
@@ -179,7 +196,7 @@ def main():
         print("No matching tasks.")
         return
 
-    agent = load_agent(args.agent)
+    agent = load_agent(args.agent, model=args.model)
     results = []
     score_map = {}
     for t in tasks:

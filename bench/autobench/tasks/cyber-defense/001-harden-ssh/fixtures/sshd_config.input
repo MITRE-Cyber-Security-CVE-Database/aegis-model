@@ -1,0 +1,17 @@
+# Vulnerable sshd_config - intentionally misconfigured for AutoBench
+Port 22
+Protocol 1
+PermitRootLogin yes
+PasswordAuthentication yes
+PermitEmptyPasswords yes
+X11Forwarding yes
+MaxAuthTries 10
+ChallengeResponseAuthentication no
+UsePAM yes
+AcceptEnv LANG LC_*
+Subsystem sftp /usr/lib/openssh/sftp-server
+ClientAliveInterval 300
+ClientAliveCountMax 3
+HostKey /etc/ssh/ssh_host_rsa_key
+HostKey /etc/ssh/ssh_host_ecdsa_key
+HostKey /etc/ssh/ssh_host_ed25519_key

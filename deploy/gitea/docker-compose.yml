@@ -1,0 +1,59 @@
+version: "3.9"
+
+# Autonomous git platform for AEGIS.
+# No external dependency, no GitHub permission errors, no human-in-loop repo creation.
+#
+# After first start:
+#   1. Visit http://localhost:3000 once to finalize install (or use INSTALL_LOCK=true below)
+#   2. Create admin: docker exec -u git aegis-gitea gitea admin user create \
+#        --username aegis --password "<pw>" --email aegis@localhost --admin
+#   3. Generate token: curl -u aegis:<pw> -X POST http://localhost:3000/api/v1/users/aegis/tokens \
+#        -d '{"name":"autonomous","scopes":["write:repository","write:user"]}' \
+#        -H 'Content-Type: application/json'
+#   4. Export GITEA_TOKEN=<token>; then gitea_cli.py can create repos + push autonomously.
+
+services:
+  gitea:
+    image: gitea/gitea:1.22
+    container_name: aegis-gitea
+    restart: unless-stopped
+    environment:
+      - USER_UID=1000
+      - USER_GID=1000
+      - GITEA__database__DB_TYPE=sqlite3
+      - GITEA__server__DOMAIN=localhost
+      - GITEA__server__HTTP_PORT=3000
+      - GITEA__server__ROOT_URL=http://localhost:3030/
+      - GITEA__server__SSH_DOMAIN=localhost
+      - GITEA__server__SSH_PORT=2222
+      - GITEA__security__INSTALL_LOCK=true
+      - GITEA__service__DISABLE_REGISTRATION=true
+      - GITEA__service__REQUIRE_SIGNIN_VIEW=false
+      - GITEA__webhook__ALLOWED_HOST_LIST=*
+      - GITEA__actions__ENABLED=true
+    ports:
+      - "3030:3000"
+      - "2222:22"
+    volumes:
+      - gitea-data:/data
+      - /etc/timezone:/etc/timezone:ro
+      - /etc/localtime:/etc/localtime:ro
+
+  # Gitea Actions runner — gives us autonomous CI/CD with no GitHub
+  runner:
+    image: gitea/act_runner:0.2.11
+    container_name: aegis-gitea-runner
+    restart: unless-stopped
+    depends_on:
+      - gitea
+    environment:
+      - GITEA_INSTANCE_URL=http://gitea:3000
+      - GITEA_RUNNER_REGISTRATION_TOKEN=${GITEA_RUNNER_TOKEN:-}
+      - GITEA_RUNNER_NAME=aegis-runner-local
+    volumes:
+      - runner-data:/data
+      - /var/run/docker.sock:/var/run/docker.sock
+
+volumes:
+  gitea-data:
+  runner-data:
