@@ -38,16 +38,58 @@ RULES:
   4. You CANNOT ask the human for help. There is no human.
 """
 
-TOOL_RE = re.compile(r"\{[^{}]*\"tool\"[^{}]*\}", re.DOTALL)
+def _extract_json_object(text: str) -> str | None:
+    """Find the first JSON object containing '"tool"' by bracket-balancing.
+
+    The simple regex \\{[^{}]*"tool"[^{}]*\\} fails on nested objects/arrays
+    (e.g. {"tool":"plan","args":{"steps":["a","b"]}}), so we walk the string
+    counting braces while respecting string literals.
+    """
+    n = len(text)
+    i = 0
+    while i < n:
+        if text[i] != "{":
+            i += 1
+            continue
+        depth = 0
+        j = i
+        in_str = False
+        esc = False
+        while j < n:
+            c = text[j]
+            if in_str:
+                if esc:
+                    esc = False
+                elif c == "\\":
+                    esc = True
+                elif c == '"':
+                    in_str = False
+            else:
+                if c == '"':
+                    in_str = True
+                elif c == "{":
+                    depth += 1
+                elif c == "}":
+                    depth -= 1
+                    if depth == 0:
+                        candidate = text[i:j + 1]
+                        if '"tool"' in candidate:
+                            return candidate
+                        break
+            j += 1
+        i += 1
+    return None
 
 
 class OllamaAgent(AgentAdapter):
     name = "ollama"
 
-    def __init__(self, model: str = "aegis:latest", host: str = "http://localhost:11434", max_steps: int = 20):
+    def __init__(self, model: str = "aegis:latest", host: str = "http://localhost:11434",
+                 max_steps: int = 12, max_bad_parses: int = 3):
         self.model = model
         self.host = host
         self.max_steps = max_steps
+        self.max_bad_parses = max_bad_parses
 
     def _chat(self, messages: list[dict]) -> str:
         import urllib.request
@@ -71,6 +113,7 @@ class OllamaAgent(AgentAdapter):
         t0 = time.time()
         tokens = 0
         final_msg = ""
+        bad_parses = 0
 
         for step in range(self.max_steps):
             try:
@@ -81,24 +124,32 @@ class OllamaAgent(AgentAdapter):
 
             tokens += len(reply.split())  # rough estimate
 
-            match = TOOL_RE.search(reply)
-            if not match:
+            extracted = _extract_json_object(reply)
+            if extracted is None:
+                bad_parses += 1
                 trace.append({"kind": "tool_result", "name": "_parse", "payload": {"raw": reply[:200]}, "success": False})
+                if bad_parses >= self.max_bad_parses:
+                    trace.append({"kind": "final", "payload": {"message": "aborted: too many parse failures"}})
+                    break
                 messages.append({"role": "assistant", "content": reply})
-                messages.append({"role": "user", "content": "ERROR: emit a single JSON tool call."})
+                messages.append({"role": "user", "content": "ERROR: emit a single JSON tool call containing a 'tool' key."})
                 continue
 
             try:
-                call = json.loads(match.group(0))
+                call = json.loads(extracted)
             except json.JSONDecodeError as e:
+                bad_parses += 1
                 trace.append({"kind": "tool_result", "name": "_parse", "payload": {"error": str(e)}, "success": False})
+                if bad_parses >= self.max_bad_parses:
+                    trace.append({"kind": "final", "payload": {"message": "aborted: too many parse failures"}})
+                    break
                 messages.append({"role": "user", "content": "ERROR: malformed JSON. Try again."})
                 continue
 
             tool = call.get("tool", "")
             args = call.get("args", {}) or {}
             trace.append({"kind": "tool_call", "name": tool, "payload": args})
-            messages.append({"role": "assistant", "content": match.group(0)})
+            messages.append({"role": "assistant", "content": extracted})
 
             if tool == "plan":
                 trace.append({"kind": "plan", "payload": {"steps": args.get("steps", [])}})
@@ -124,12 +175,41 @@ class OllamaAgent(AgentAdapter):
         return AgentResponse(trace=trace, final_message=final_msg, tokens_used=tokens, wall_time_s=time.time() - t0)
 
     # ---- tool implementations ----
+    # Hardened env passed to every subprocess: no interactive prompts, no sudo,
+    # no Python path bleed-through. Prevents stuck `sudo` prompts blocking the run.
+    _SAFE_ENV = {
+        "PATH": "/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin",
+        "HOME": "/tmp",
+        "LANG": "C.UTF-8",
+        "SUDO_ASKPASS": "/bin/false",
+        "DEBIAN_FRONTEND": "noninteractive",
+        "PYTHONUNBUFFERED": "1",
+        # Block sudo entirely by intercepting it on PATH
+        "SUDO": "/bin/false",
+    }
+
+    # Commands the agent is never allowed to run (sandboxed but defense-in-depth)
+    _FORBIDDEN = ("sudo ", "su ", "doas ", "pkexec ", " sudo", ";sudo", "&&sudo")
+
     def _shell(self, cmd: str, cwd: str, trace: list) -> str:
+        for token in self._FORBIDDEN:
+            if token in f" {cmd} ":
+                trace.append({"kind": "tool_result", "name": "shell",
+                              "payload": {"blocked": True, "cmd": cmd[:200]}, "success": False})
+                return "ERR: command blocked (privilege escalation not permitted in sandbox)"
         try:
-            r = subprocess.run(cmd, shell=True, cwd=cwd, capture_output=True, text=True, timeout=60)
+            r = subprocess.run(
+                cmd, shell=True, cwd=cwd,
+                capture_output=True, text=True, timeout=60,
+                stdin=subprocess.DEVNULL,
+                env=self._SAFE_ENV,
+            )
             ok = r.returncode == 0
             trace.append({"kind": "tool_result", "name": "shell", "payload": {"rc": r.returncode}, "success": ok})
             return (r.stdout + r.stderr)[:2000]
+        except subprocess.TimeoutExpired:
+            trace.append({"kind": "tool_result", "name": "shell", "payload": {"error": "timeout"}, "success": False})
+            return "ERR: command timed out after 60s"
         except Exception as e:
             trace.append({"kind": "tool_result", "name": "shell", "payload": {"error": str(e)}, "success": False})
             return f"ERR: {e}"
@@ -156,11 +236,24 @@ class OllamaAgent(AgentAdapter):
             return f"ERR: {e}"
 
     def _verify(self, cmd: str, cwd: str, trace: list) -> str:
+        for token in self._FORBIDDEN:
+            if token in f" {cmd} ":
+                trace.append({"kind": "verify", "name": cmd,
+                              "payload": {"blocked": True}, "success": False})
+                return "ERR: command blocked"
         try:
-            r = subprocess.run(cmd, shell=True, cwd=cwd, capture_output=True, text=True, timeout=120)
+            r = subprocess.run(
+                cmd, shell=True, cwd=cwd,
+                capture_output=True, text=True, timeout=120,
+                stdin=subprocess.DEVNULL,
+                env=self._SAFE_ENV,
+            )
             ok = r.returncode == 0
             trace.append({"kind": "verify", "name": cmd, "payload": {"rc": r.returncode}, "success": ok})
             return f"verify rc={r.returncode}\n" + (r.stdout + r.stderr)[:1500]
+        except subprocess.TimeoutExpired:
+            trace.append({"kind": "verify", "name": cmd, "payload": {"error": "timeout"}, "success": False})
+            return "ERR: verify timed out after 120s"
         except Exception as e:
             trace.append({"kind": "verify", "name": cmd, "payload": {"error": str(e)}, "success": False})
             return f"ERR: {e}"
