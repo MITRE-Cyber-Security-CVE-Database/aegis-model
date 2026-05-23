@@ -34,8 +34,10 @@ Tools (call ONE per turn, formatted as JSON):
 RULES:
   1. Output exactly ONE JSON object per turn. Nothing else.
   2. Begin by emitting a plan.
-  3. Verify your work with at least one verify call before final.
-  4. You CANNOT ask the human for help. There is no human.
+  3. After writing or changing ANY file, you MUST run verify (e.g. pytest, test script, or the task's success check).
+  4. You are NOT allowed to call final until verify has returned exit code 0 (success). If verify fails, diagnose the error, fix it, and verify again.
+  5. A verify result of "rc=0" means success. "rc=1" or any non-zero means failure — fix the underlying issue before proceeding.
+  6. You CANNOT ask the human for help. There is no human.
 """
 
 def _extract_json_object(text: str) -> str | None:

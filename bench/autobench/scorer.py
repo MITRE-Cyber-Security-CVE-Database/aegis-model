@@ -49,11 +49,11 @@ class DimensionScores:
     def tier(self) -> str:
         s = self.autoscore()
         if s < 0.30: return "T0-Demo"
-        if s < 0.50: return "T1-Assistant"
-        if s < 0.70: return "T2-Operator"
-        if s < 0.85: return "T3-Engineer"
-        if s < 0.95: return "T4-Senior"
-        return "T5-Autonomous"
+        if s < 0.50: return "T1-Junior"
+        if s < 0.65: return "T2-Mid"
+        if s < 0.80: return "T3-Engineer"
+        if s < 0.90: return "T4-Senior"
+        return "T5-Principal"
 
 
 def score_goal_decomposition(trace: Sequence[TraceEvent], optimal_steps: int) -> float:
@@ -148,11 +148,11 @@ def aggregate(per_task: dict[str, DimensionScores]) -> dict[str, Any]:
 
 def _tier_for(s: float) -> str:
     if s < 0.30: return "T0-Demo"
-    if s < 0.50: return "T1-Assistant"
-    if s < 0.70: return "T2-Operator"
-    if s < 0.85: return "T3-Engineer"
-    if s < 0.95: return "T4-Senior"
-    return "T5-Autonomous"
+    if s < 0.50: return "T1-Junior"
+    if s < 0.65: return "T2-Mid"
+    if s < 0.80: return "T3-Engineer"
+    if s < 0.90: return "T4-Senior"
+    return "T5-Principal"
 
 
 if __name__ == "__main__":

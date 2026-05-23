@@ -59,6 +59,17 @@ python3 bench/autobench/compare.py --summary-only
 Each run produces a JSON file in this directory with the full per-task
 trace, dimension scores, and dropped-step counts.
 
+## Testing & validation
+
+The scorer and agent adapter have a `pytest` suite:
+
+```bash
+cd bench/autobench
+python3 -m pytest tests/ -v
+```
+
+Current coverage: 38 tests passing (scorer dimensions, tier mapping, JSON extraction, markdown fences).
+
 ## Next steps for the real AEGIS model
 
 The lite merger (`src/merge_adapters_lite.py`) has produced
