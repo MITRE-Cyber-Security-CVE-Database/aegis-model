@@ -1,0 +1,209 @@
+name: AEGIS Model Build Pipeline
+
+on:
+  push:
+    branches: [main, develop]
+    paths:
+      - "src/**"
+      - "deploy/Modelfile"
+      - "corpus/**"
+  pull_request:
+    branches: [main]
+  schedule:
+    # Weekly rebuild on Sundays at 02:00 UTC
+    - cron: "0 2 * * 0"
+  workflow_dispatch:
+    inputs:
+      base_model:
+        description: "Base model to use"
+        required: false
+        default: "mistralai/Mistral-7B-Instruct-v0.3"
+      quantization:
+        description: "Quantization level (Q4_K_M, Q8_0, F16)"
+        required: false
+        default: "Q4_K_M"
+
+env:
+  PYTHON_VERSION: "3.11"
+  BASE_MODEL: ${{ github.event.inputs.base_model || 'mistralai/Mistral-7B-Instruct-v0.3' }}
+  QUANT_LEVEL: ${{ github.event.inputs.quantization || 'Q4_K_M' }}
+
+jobs:
+  merge-adapters:
+    name: Merge LoRA Adapters
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ env.PYTHON_VERSION }}
+
+      - name: Cache pip dependencies
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/pip
+          key: ${{ runner.os }}-pip-${{ hashFiles('**/requirements.txt') }}
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -q transformers peft accelerate bitsandbytes torch
+
+      - name: Download base model (cached)
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/huggingface
+          key: ${{ runner.os }}-hf-${{ env.BASE_MODEL }}-${{ hashFiles('src/merge_adapters.py') }}
+
+      - name: Merge adapters
+        run: |
+          python src/merge_adapters.py \
+            --base ${{ env.BASE_MODEL }} \
+            --output ./aegis-merged-adapter \
+            --hancock-weight 0.4 \
+            --sauron-weight 0.4 \
+            --hancock2-weight 0.2
+
+      - name: Upload merged adapter
+        uses: actions/upload-artifact@v4
+        with:
+          name: aegis-merged-adapter
+          path: ./aegis-merged-adapter/
+          retention-days: 30
+
+  quantize:
+    name: Quantize to GGUF
+    needs: merge-adapters
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ env.PYTHON_VERSION }}
+
+      - name: Download merged adapter
+        uses: actions/download-artifact@v4
+        with:
+          name: aegis-merged-adapter
+          path: ./aegis-merged-adapter/
+
+      - name: Install llama.cpp tools
+        run: |
+          sudo apt-get update && sudo apt-get install -y cmake build-essential
+          git clone --depth 1 https://github.com/ggerganov/llama.cpp.git
+          cd llama.cpp && cmake -B build && cmake --build build --config Release -j$(nproc)
+
+      - name: Merge and quantize
+        run: |
+          python src/quantize.py \
+            --base ${{ env.BASE_MODEL }} \
+            --adapter ./aegis-merged-adapter \
+            --output ./aegis-${{ env.QUANT_LEVEL }}.gguf \
+            --quantization ${{ env.QUANT_LEVEL }}
+
+      - name: Upload quantized model
+        uses: actions/upload-artifact@v4
+        with:
+          name: aegis-model-${{ env.QUANT_LEVEL }}
+          path: ./aegis-${{ env.QUANT_LEVEL }}.gguf
+          retention-days: 30
+
+  evaluate:
+    name: Security Benchmark Evaluation
+    needs: quantize
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ env.PYTHON_VERSION }}
+
+      - name: Download quantized model
+        uses: actions/download-artifact@v4
+        with:
+          name: aegis-model-${{ env.QUANT_LEVEL }}
+          path: ./models/
+
+      - name: Install evaluation dependencies
+        run: |
+          pip install -q ollama datasets scikit-learn requests
+
+      - name: Start Ollama
+        run: |
+          curl -fsSL https://ollama.com/install.sh | sh
+          ollama serve &
+          sleep 5
+          ollama create aegis -f deploy/Modelfile
+          # Override with our built model if available
+          if [ -f ./models/aegis-${{ env.QUANT_LEVEL }}.gguf ]; then
+            echo "FROM ./models/aegis-${{ env.QUANT_LEVEL }}.gguf" > deploy/Modelfile.local
+            cat deploy/Modelfile >> deploy/Modelfile.local
+            ollama create aegis-local -f deploy/Modelfile.local
+          fi
+
+      - name: Run benchmarks
+        run: |
+          python eval/evaluate.py \
+            --model aegis-local \
+            --benchmarks cwe-top25,mitre-mapping,code-review \
+            --output results.json
+
+      - name: Upload results
+        uses: actions/upload-artifact@v4
+        with:
+          name: evaluation-results
+          path: results.json
+
+      - name: Comment PR with results
+        if: github.event_name == 'pull_request'
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const fs = require('fs');
+            const results = JSON.parse(fs.readFileSync('results.json', 'utf8'));
+            const body = `## AEGIS Evaluation Results\n\n` +
+              `| Benchmark | Score |\n` +
+              `|-----------|-------|\n` +
+              Object.entries(results).map(([k,v]) => `| ${k} | ${v}% |`).join('\n');
+            github.rest.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: body
+            });
+
+  release:
+    name: Create Release
+    needs: [merge-adapters, quantize, evaluate]
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/main'
+    steps:
+      - name: Download all artifacts
+        uses: actions/download-artifact@v4
+        with:
+          path: ./artifacts/
+
+      - name: Create Release
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: aegis-${{ github.run_number }}
+          name: "AEGIS v${{ github.run_number }}"
+          body: |
+            Automated AEGIS model build
+            - Base: ${{ env.BASE_MODEL }}
+            - Quantization: ${{ env.QUANT_LEVEL }}
+            - Adapters: Hancock + Sauron merged
+          files: |
+            ./artifacts/**/*.gguf
+            ./artifacts/**/results.json
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
