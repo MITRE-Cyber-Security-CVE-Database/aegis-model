@@ -6,19 +6,32 @@ Uses PEFT/mergekit for weighted merging.
 """
 
 import os
+import sys
 import argparse
 from pathlib import Path
 
-try:
-    from peft import PeftModel
-    from transformers import AutoModelForCausalLM, AutoTokenizer
-    import torch
-except ImportError:
-    print("Installing dependencies...")
-    os.system("pip install -q transformers peft accelerate bitsandbytes")
-    from peft import PeftModel
-    from transformers import AutoModelForCausalLM, AutoTokenizer
-    import torch
+
+def _ensure_ml_deps():
+    """Lazy-import ML dependencies. Auto-create venv on Kali (PEP 668)."""
+    try:
+        from peft import PeftModel  # noqa: F401
+        from transformers import AutoModelForCausalLM, AutoTokenizer  # noqa: F401
+        import torch  # noqa: F401
+        return
+    except ImportError:
+        pass
+
+    venv_dir = Path.home() / ".aegis-venv"
+    if not venv_dir.exists():
+        print(f"[AEGIS] Creating venv at {venv_dir} (PEP 668 / Kali workaround)...")
+        os.system(f"python3 -m venv {venv_dir}")
+        os.system(f"{venv_dir}/bin/pip install -q --upgrade pip")
+        os.system(f"{venv_dir}/bin/pip install -q transformers peft accelerate bitsandbytes torch safetensors")
+
+    venv_python = venv_dir / "bin" / "python3"
+    if str(sys.executable) != str(venv_python):
+        print(f"[AEGIS] Re-executing inside venv: {venv_python}")
+        os.execv(str(venv_python), [str(venv_python)] + sys.argv)
 
 
 BASE_MODEL = "mistralai/Mistral-7B-Instruct-v0.3"
@@ -80,6 +93,12 @@ def merge_adapters(base_model_name: str, output_dir: str, weights: dict = None):
     total = sum(weights.values())
     weights = {k: v / total for k, v in weights.items()}
     print(f"\n[AEGIS] Merge weights (normalized): {weights}")
+
+    # Lazy-load ML deps (auto-creates venv on Kali if needed)
+    _ensure_ml_deps()
+    from peft import PeftModel
+    from transformers import AutoModelForCausalLM, AutoTokenizer
+    import torch
 
     print(f"[AEGIS] Loading base model: {base_model_name}")
     print(f"[AEGIS] This will use ~14GB RAM. Ensure you have sufficient memory.")
