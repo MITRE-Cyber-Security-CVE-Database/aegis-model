@@ -1,0 +1,11 @@
+# Nmap 7.99 scan initiated Sat May 23 03:18:35 2026 as: /usr/lib/nmap/nmap --privileged -sn -n -T4 --max-retries 1 -oG /home/x/aegis-model/recon/inventory/20260523T081833Z/nmap_ping.gnmap -oN /home/x/aegis-model/recon/inventory/20260523T081833Z/nmap_ping.txt 192.168.0.0/24
+Host: 192.168.0.1 ()	Status: Up
+Host: 192.168.0.37 ()	Status: Up
+Host: 192.168.0.121 ()	Status: Up
+Host: 192.168.0.162 ()	Status: Up
+Host: 192.168.0.189 ()	Status: Up
+Host: 192.168.0.192 ()	Status: Up
+Host: 192.168.0.193 ()	Status: Up
+Host: 192.168.0.210 ()	Status: Up
+Host: 192.168.0.83 ()	Status: Up
+# Nmap done at Sat May 23 03:18:37 2026 -- 256 IP addresses (9 hosts up) scanned in 2.02 seconds

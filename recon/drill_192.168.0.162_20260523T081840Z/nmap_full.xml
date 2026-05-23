@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE nmaprun>
+<?xml-stylesheet href="file:///usr/share/nmap/nmap.xsl" type="text/xsl"?>
+<!-- Nmap 7.99 scan initiated Sat May 23 03:18:40 2026 as: /usr/lib/nmap/nmap -&#45;privileged -sV -sC -p- -&#45;version-intensity 7 -&#45;max-retries 2 -&#45;host-timeout 15m -T4 -oN /home/x/aegis-model/recon/drill_192.168.0.162_20260523T081840Z/nmap_full.txt -oX /home/x/aegis-model/recon/drill_192.168.0.162_20260523T081840Z/nmap_full.xml -oG /home/x/aegis-model/recon/drill_192.168.0.162_20260523T081840Z/nmap_full.gnmap 192.168.0.162 -->
+<nmaprun scanner="nmap" args="/usr/lib/nmap/nmap -&#45;privileged -sV -sC -p- -&#45;version-intensity 7 -&#45;max-retries 2 -&#45;host-timeout 15m -T4 -oN /home/x/aegis-model/recon/drill_192.168.0.162_20260523T081840Z/nmap_full.txt -oX /home/x/aegis-model/recon/drill_192.168.0.162_20260523T081840Z/nmap_full.xml -oG /home/x/aegis-model/recon/drill_192.168.0.162_20260523T081840Z/nmap_full.gnmap 192.168.0.162" start="1779524320" startstr="Sat May 23 03:18:40 2026" version="7.99" xmloutputversion="1.05">
+<scaninfo type="syn" protocol="tcp" numservices="65535" services="1-65535"/>
+<verbose level="0"/>
+<debugging level="0"/>
+<hosthint><status state="up" reason="arp-response" reason_ttl="0"/>
+<address addr="192.168.0.162" addrtype="ipv4"/>
+<address addr="D8:3A:DD:98:E4:87" addrtype="mac" vendor="Raspberry Pi Trading"/>
+<hostnames>
+</hostnames>
+</hosthint>
+<host starttime="1779524321" endtime="1779524351"><status state="up" reason="arp-response" reason_ttl="0"/>
+<address addr="192.168.0.162" addrtype="ipv4"/>
+<address addr="D8:3A:DD:98:E4:87" addrtype="mac" vendor="Raspberry Pi Trading"/>
+<hostnames>
+</hostnames>
+<ports><extraports state="closed" count="65524">
+<extrareasons reason="reset" count="65524" proto="tcp" ports="1-21,23-79,81-442,444-8079,8081-10249,10251-30046,30048-30080,30082-30536,30538-30698,30700-30887,30889-32351,32353-65535"/>
+</extraports>
+<port protocol="tcp" portid="22"><state state="open" reason="syn-ack" reason_ttl="64"/><service name="ssh" product="Dropbear sshd" version="2025.89" extrainfo="protocol 2.0" ostype="Linux" method="probed" conf="10"><cpe>cpe:/a:matt_johnston:dropbear_ssh_server:2025.89</cpe><cpe>cpe:/o:linux:linux_kernel</cpe></service></port>
+<port protocol="tcp" portid="80"><state state="filtered" reason="no-response" reason_ttl="0"/><service name="http" method="table" conf="3"/></port>
+<port protocol="tcp" portid="443"><state state="filtered" reason="no-response" reason_ttl="0"/><service name="https" method="table" conf="3"/></port>
+<port protocol="tcp" portid="8080"><state state="filtered" reason="no-response" reason_ttl="0"/><service name="http-proxy" method="table" conf="3"/></port>
+<port protocol="tcp" portid="10250"><state state="open" reason="syn-ack" reason_ttl="64"/><service name="http" product="Golang net/http server" extrainfo="Go-IPFS json-rpc or InfluxDB API" tunnel="ssl" method="probed" conf="10"><cpe>cpe:/a:protocol_labs:go-ipfs</cpe></service><script id="ssl-date" output="TLS randomness does not represent time"></script><script id="ssl-cert" output="Subject: commonName=dietpi&#xa;Subject Alternative Name: DNS:dietpi, DNS:localhost, IP Address:127.0.0.1, IP Address:0:0:0:0:0:0:0:1, IP Address:192.168.0.162, IP Address:2600:8807:2680:7BC0:DA3A:DDFF:FE98:E487&#xa;Not valid before: 2026-05-23T05:04:05&#xa;Not valid after:  2027-05-23T05:04:05"><table key="subject">
+<elem key="commonName">dietpi</elem>
+</table>
+<table key="issuer">
+<elem key="commonName">k3s-server-ca@1779182481</elem>
+</table>
+<table key="pubkey">
+<elem key="type">ec</elem>
+<elem key="bits">256</elem>
+<table key="ecdhparams">
+<table key="curve_params">
+<elem key="ec_curve_type">namedcurve</elem>
+<elem key="curve">prime256v1</elem>
+</table>
+</table>
+</table>
+<table key="extensions">
+<table>
+<elem key="name">X509v3 Key Usage</elem>
+<elem key="value">Digital Signature, Key Encipherment</elem>
+<elem key="critical">true</elem>
+</table>
+<table>
+<elem key="name">X509v3 Extended Key Usage</elem>
+<elem key="value">TLS Web Server Authentication</elem>
+</table>
+<table>
+<elem key="name">X509v3 Authority Key Identifier</elem>
+<elem key="value">17:57:1A:16:01:78:B6:6B:F2:CF:38:BA:47:41:D9:5A:A0:27:60:82</elem>
+</table>
+<table>
+<elem key="name">X509v3 Subject Alternative Name</elem>
+<elem key="value">DNS:dietpi, DNS:localhost, IP Address:127.0.0.1, IP Address:0:0:0:0:0:0:0:1, IP Address:192.168.0.162, IP Address:2600:8807:2680:7BC0:DA3A:DDFF:FE98:E487</elem>
+</table>
+</table>
+<elem key="sig_algo">ecdsa-with-SHA256</elem>
+<table key="validity">
+<elem key="notBefore">2026-05-23T05:04:05</elem>
+<elem key="notAfter">2027-05-23T05:04:05</elem>
+</table>
+<elem key="md5">3c2c12f9a51ca6ba886fa7562bc203a2</elem>
+<elem key="sha1">604636b4e99d42e3849d8362ee9cca8df87854e5</elem>
+<elem key="sha256">c1647ba40be939720f6004452ffa5c5892284fa4b6a59849dfed1269c28d8bbc</elem>
+<elem key="pem">-&#45;&#45;&#45;&#45;BEGIN CERTIFICATE-&#45;&#45;&#45;&#45;&#xa;MIIBwzCCAWigAwIBAgIII8bemzftNOswCgYIKoZIzj0EAwIwIzEhMB8GA1UEAwwY&#xa;azNzLXNlcnZlci1jYUAxNzc5MTgyNDgxMB4XDTI2MDUyMzA1MDQwNVoXDTI3MDUy&#xa;MzA1MDQwNVowETEPMA0GA1UEAxMGZGlldHBpMFkwEwYHKoZIzj0CAQYIKoZIzj0D&#xa;AQcDQgAE1S4gNxG8UHIco2YEexQJvrjAPF1ASWowBKnUhpp8Sb0PdtCodM26o3r9&#xa;sQMt8/W1shi9QA0/9+cZ80m+V/efMaOBlzCBlDAOBgNVHQ8BAf8EBAMCBaAwEwYD&#xa;VR0lBAwwCgYIKwYBBQUHAwEwHwYDVR0jBBgwFoAUF1caFgF4tmvyzzi6R0HZWqAn&#xa;YIIwTAYDVR0RBEUwQ4IGZGlldHBpgglsb2NhbGhvc3SHBH8AAAGHEAAAAAAAAAAA&#xa;AAAAAAAAAAGHBMCoAKKHECYAiAcmgHvA2jrd//6Y5IcwCgYIKoZIzj0EAwIDSQAw&#xa;RgIhAPZ7ZUHTL0iKq+AqsMq1Th7RK13ZF2DSQgy+gnqZjHLnAiEA5LyemYT1UVQP&#xa;IMQizGMrxgIoLj+dBzmiK6lbbszhBwI=&#xa;-&#45;&#45;&#45;&#45;END CERTIFICATE-&#45;&#45;&#45;&#45;&#xa;</elem>
+</script><script id="http-title" output="Site doesn&apos;t have a title (text/plain; charset=utf-8)."></script></port>
+<port protocol="tcp" portid="30047"><state state="open" reason="syn-ack" reason_ttl="62"/><service name="http" product="Werkzeug httpd" version="3.1.8" extrainfo="Python 3.11.15" method="probed" conf="10"><cpe>cpe:/a:python:python:3.11.15</cpe></service><script id="http-title" output="404 Not Found"><elem key="title">404 Not Found</elem>
+</script><script id="http-server-header" output="Werkzeug/3.1.8 Python/3.11.15"><elem>Werkzeug/3.1.8 Python/3.11.15</elem>
+</script></port>
+<port protocol="tcp" portid="30081"><state state="filtered" reason="port-unreach" reason_ttl="64"/></port>
+<port protocol="tcp" portid="30537"><state state="open" reason="syn-ack" reason_ttl="62"/><service name="http" product="Werkzeug httpd" version="3.1.8" extrainfo="Python 3.11.15" method="probed" conf="10"><cpe>cpe:/a:python:python:3.11.15</cpe></service><script id="http-title" output="404 Not Found"><elem key="title">404 Not Found</elem>
+</script><script id="http-server-header" output="Werkzeug/3.1.8 Python/3.11.15"><elem>Werkzeug/3.1.8 Python/3.11.15</elem>
+</script></port>
+<port protocol="tcp" portid="30699"><state state="open" reason="syn-ack" reason_ttl="62"/><service name="http" product="Golang net/http server" extrainfo="Go-IPFS json-rpc or InfluxDB API" method="probed" conf="10"><cpe>cpe:/a:protocol_labs:go-ipfs</cpe></service><script id="http-title" output="Site doesn&apos;t have a title (text/plain; charset=utf-8)."></script></port>
+<port protocol="tcp" portid="30888"><state state="filtered" reason="port-unreach" reason_ttl="64"/></port>
+<port protocol="tcp" portid="32352"><state state="open" reason="syn-ack" reason_ttl="62"/><service name="http" product="Golang net/http server" extrainfo="Go-IPFS json-rpc or InfluxDB API" method="probed" conf="10"><cpe>cpe:/a:protocol_labs:go-ipfs</cpe></service><script id="http-title" output="Site doesn&apos;t have a title (text/plain; charset=utf-8)."></script></port>
+</ports>
+<times srtt="3710" rttvar="500" to="100000"/>
+</host>
+<runstats><finished time="1779524351" timestr="Sat May 23 03:19:11 2026" summary="Nmap done at Sat May 23 03:19:11 2026; 1 IP address (1 host up) scanned in 30.61 seconds" elapsed="30.61" exit="success"/><hosts up="1" down="0" total="1"/>
+</runstats>
+</nmaprun>

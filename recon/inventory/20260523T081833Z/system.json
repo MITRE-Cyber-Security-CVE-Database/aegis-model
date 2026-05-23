@@ -1,0 +1,17 @@
+{
+  "hostname": "cyberviser",
+  "fqdn": "cyberviser.cyberviserai.com",
+  "kernel": "Linux 6.19.14+kali-amd64 x86_64",
+  "distro": "Kali GNU/Linux Rolling",
+  "uptime": "up 3 days, 15 hours, 6 minutes",
+  "boot_time": "2026-05-19 12:12:30",
+  "load_avg": "2.65 1.89 1.70",
+  "cpu_model": "AMD Ryzen 7 5700U with Radeon Graphics",
+  "cpu_cores": 16,
+  "memory_kb": {"total": 19793984, "available": 13921192},
+  "swap_kb": {"total": 12898300, "free": 7082016},
+  "users_logged_in": 2,
+  "current_user": "x",
+  "is_root": false,
+  "shells_in_use": 3
+}

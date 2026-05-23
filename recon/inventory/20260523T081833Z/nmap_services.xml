@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE nmaprun>
+<?xml-stylesheet href="file:///usr/share/nmap/nmap.xsl" type="text/xsl"?>
+<!-- Nmap 7.99 scan initiated Sat May 23 03:18:37 2026 as: /usr/lib/nmap/nmap -&#45;privileged -sV -&#45;version-light -F -T4 -&#45;max-retries 2 -&#45;host-timeout 60s -oN /home/x/aegis-model/recon/inventory/20260523T081833Z/nmap_services.txt -oX /home/x/aegis-model/recon/inventory/20260523T081833Z/nmap_services.xml -oG /home/x/aegis-model/recon/inventory/20260523T081833Z/nmap_services.gnmap 192.168.0.1 192.168.0.121 192.168.0.162 192.168.0.189 192.168.0.192 192.168.0.193 192.168.0.210 192.168.0.37 192.168.0.83 -->
+<nmaprun scanner="nmap" args="/usr/lib/nmap/nmap -&#45;privileged -sV -&#45;version-light -F -T4 -&#45;max-retries 2 -&#45;host-timeout 60s -oN /home/x/aegis-model/recon/inventory/20260523T081833Z/nmap_services.txt -oX /home/x/aegis-model/recon/inventory/20260523T081833Z/nmap_services.xml -oG /home/x/aegis-model/recon/inventory/20260523T081833Z/nmap_services.gnmap 192.168.0.1 192.168.0.121 192.168.0.162 192.168.0.189 192.168.0.192 192.168.0.193 192.168.0.210 192.168.0.37 192.168.0.83" start="1779524317" startstr="Sat May 23 03:18:37 2026" version="7.99" xmloutputversion="1.05">
+<scaninfo type="syn" protocol="tcp" numservices="100" services="7,9,13,21-23,25-26,37,53,79-81,88,106,110-111,113,119,135,139,143-144,179,199,389,427,443-445,465,513-515,543-544,548,554,587,631,646,873,990,993,995,1025-1029,1110,1433,1720,1723,1755,1900,2000-2001,2049,2121,2717,3000,3128,3306,3389,3986,4899,5000,5009,5051,5060,5101,5190,5357,5432,5631,5666,5800,5900,6000-6001,6646,7070,8000,8008-8009,8080-8081,8443,8888,9100,9999-10000,32768,49152-49157"/>
+<verbose level="0"/>
+<debugging level="0"/>
+<hosthint><status state="up" reason="arp-response" reason_ttl="0"/>
+<address addr="192.168.0.1" addrtype="ipv4"/>
+<address addr="10:E1:77:2B:BE:8D" addrtype="mac" vendor="Commscope"/>
+<hostnames>
+</hostnames>
+</hosthint>
+<hosthint><status state="up" reason="arp-response" reason_ttl="0"/>
+<address addr="192.168.0.37" addrtype="ipv4"/>
+<address addr="28:EA:0B:76:4F:91" addrtype="mac" vendor="Microsoft"/>
+<hostnames>
+</hostnames>
+</hosthint>
+<hosthint><status state="up" reason="arp-response" reason_ttl="0"/>
+<address addr="192.168.0.162" addrtype="ipv4"/>
+<address addr="D8:3A:DD:98:E4:87" addrtype="mac" vendor="Raspberry Pi Trading"/>
+<hostnames>
+</hostnames>
+</hosthint>
+<hosthint><status state="up" reason="arp-response" reason_ttl="0"/>
+<address addr="192.168.0.210" addrtype="ipv4"/>
+<address addr="80:47:86:91:3C:6E" addrtype="mac" vendor="Samsung Electronics"/>
+<hostnames>
+</hostnames>
+</hosthint>
+<hosthint><status state="up" reason="arp-response" reason_ttl="0"/>
+<address addr="192.168.0.193" addrtype="ipv4"/>
+<address addr="04:70:56:54:56:FA" addrtype="mac" vendor="Arcadyan"/>
+<hostnames>
+</hostnames>
+</hosthint>
+<hosthint><status state="up" reason="arp-response" reason_ttl="0"/>
+<address addr="192.168.0.192" addrtype="ipv4"/>
+<address addr="D8:3A:DD:8A:BB:FC" addrtype="mac" vendor="Raspberry Pi Trading"/>
+<hostnames>
+</hostnames>
+</hosthint>
+<hosthint><status state="up" reason="arp-response" reason_ttl="0"/>
+<address addr="192.168.0.189" addrtype="ipv4"/>
+<address addr="D8:3A:DD:8A:BB:FB" addrtype="mac" vendor="Raspberry Pi Trading"/>
+<hostnames>
+</hostnames>
+</hosthint>
+<hosthint><status state="up" reason="arp-response" reason_ttl="0"/>
+<address addr="192.168.0.121" addrtype="ipv4"/>
+<address addr="D0:3F:27:B5:DC:EA" addrtype="mac" vendor="Wyze Labs"/>
+<hostnames>
+</hostnames>
+</hosthint>
+<host starttime="1779524320" endtime="1779524352"><status state="up" reason="arp-response" reason_ttl="0"/>
+<address addr="192.168.0.1" addrtype="ipv4"/>
+<address addr="10:E1:77:2B:BE:8D" addrtype="mac" vendor="Commscope"/>
+<hostnames>
+</hostnames>
+<ports><extraports state="closed" count="92">
+<extrareasons reason="reset" count="92" proto="tcp" ports="7,9,13,21,25-26,37,79,81,88,106,110,113,119,135,139,143-144,179,199,389,427,444-445,465,513-515,543-544,548,554,587,631,646,873,990,993,995,1025-1029,1110,1433,1720,1723,1755,1900,2000-2001,2049,2121,2717,3000,3128,3306,3389,3986,4899,5000,5009,5051,5060,5101,5190,5357,5432,5631,5666,5800,5900,6000-6001,6646,7070,8000,8008-8009,8081,8443,8888,9100,9999-10000,32768,49153-49157"/>
+</extraports>
+<port protocol="tcp" portid="22"><state state="filtered" reason="no-response" reason_ttl="0"/><service name="ssh" method="table" conf="3"/></port>
+<port protocol="tcp" portid="23"><state state="filtered" reason="no-response" reason_ttl="0"/><service name="telnet" method="table" conf="3"/></port>
+<port protocol="tcp" portid="53"><state state="open" reason="syn-ack" reason_ttl="64"/><service name="domain" product="dnsmasq" version="2.83" method="probed" conf="10"><cpe>cpe:/a:thekelleys:dnsmasq:2.83</cpe></service></port>
+<port protocol="tcp" portid="80"><state state="open" reason="syn-ack" reason_ttl="64"/><service name="http" servicefp="SF-Port80-TCP:V=7.99%I=2%D=5/23%Time=6A1162E8%P=x86_64-pc-linux-gnu%r(GetRequest,10F8,&quot;HTTP/1\.0\x20200\x20OK\r\nContent-type:\x20text/html\r\nX-robots-tag:\x20noindex,nofollow\r\nX-Frame-Options:\x20deny\r\nX-XSS-Protection:\x201;\x20mode=block\r\nX-Content-Type-Options:\x20nosniff\r\nStrict-Transport-Security:\x20max-age=15768000;\x20includeSubdomains\r\nPragma:\x20no-cache\r\nCache-Control:\x20no-store,\x20no-cache,\x20must-revalidate\r\nContent-Security-Policy:\x20default-src\x20&apos;self&apos;\x20&apos;unsafe-inline&apos;\x20&apos;unsafe-eval&apos;;\x20style-src\x20&apos;self&apos;\x20&apos;unsafe-inline&apos;\x20&apos;unsafe-eval&apos;;\x20frame-src\x20&apos;self&apos;\x20&apos;unsafe-inline&apos;\x20&apos;unsafe-eval&apos;;\x20font-src\x20&apos;self&apos;\x20&apos;unsafe-inline&apos;\x20&apos;unsafe-eval&apos;;\x20form-action\x20&apos;self&apos;\x20&apos;unsafe-inline&apos;\x20&apos;unsafe-eval&apos;;\x20script-src\x20&apos;self&apos;\x20&apos;unsafe-inline&apos;\x20&apos;unsafe-eval&apos;;\x20img-src\x20&apos;self&apos;;\x20connect-src\x20&apos;self&apos;;\x20object-src\x20&apos;none&apos;;\x20media-src\x20&apos;none&apos;;\x20script-nonce\x20&apos;none&apos;;\x20plugin-types\x20&apos;none&apos;;\x20reflected-xss\x20&apos;none&apos;;\x20report-uri\x20&apos;none&apos;;\r\nContent-Length:\x209053\r\nConnection:\x20close\r\nDate:\x20Sat,\x2023\x20May\x202026\x2008:18:48\x20GMT\r\nServer:\x20Xfinity\x20Broadband\x20Router\x20Server\r\n\r\n\n&lt;!DOCTY&quot;)%r(HTTPOptions,10F8,&quot;HTTP/1\.0\x20200\x20OK\r\nContent-type:\x20text/html\r\nX-robots-tag:\x20noindex,nofollow\r\nX-Frame-Options:\x20deny\r\nX-XSS-Protection:\x201;\x20mode=block\r\nX-Content-Type-Options:\x20nosniff\r\nStrict-Transport-Security:\x20max-age=15768000;\x20includeSubdomains\r\nPragma:\x20no-cache\r\nCache-Control:\x20no-store,\x20no-cache,\x20must-revalidate\r\nContent-Security-Policy:\x20default-src\x20&apos;self&apos;\x20&apos;unsafe-inline&apos;\x20&apos;unsafe-eval&apos;;\x20style-src\x20&apos;self&apos;\x20&apos;unsafe-inline&apos;\x20&apos;unsafe-eval&apos;;\x20frame-src\x20&apos;self&apos;\x20&apos;unsafe-inline&apos;\x20&apos;unsafe-eval&apos;;\x20font-src\x20&apos;self&apos;\x20&apos;unsafe-inline&apos;\x20&apos;unsafe-eval&apos;;\x20form-action\x20&apos;self&apos;\x20&apos;unsafe-inline&apos;\x20&apos;unsafe-eval&apos;;\x20script-src\x20&apos;self&apos;\x20&apos;unsafe-inline&apos;\x20&apos;unsafe-eval&apos;;\x20img-src\x20&apos;self&apos;;\x20connect-src\x20&apos;self&apos;;\x20object-src\x20&apos;none&apos;;\x20media-src\x20&apos;none&apos;;\x20script-nonce\x20&apos;none&apos;;\x20plugin-types\x20&apos;none&apos;;\x20reflected-xss\x20&apos;none&apos;;\x20report-uri\x20&apos;none&apos;;\r\nContent-Length:\x209053\r\nConnection:\x20close\r\nDate:\x20Sat,\x2023\x20May\x202026\x2008:18:49\x20GMT\r\nServer:\x20Xfinity\x20Broadband\x20Router\x20Server\r\n\r\n\n&lt;!DOCTY&quot;);" method="table" conf="3"/></port>
+<port protocol="tcp" portid="111"><state state="filtered" reason="no-response" reason_ttl="0"/><service name="rpcbind" method="table" conf="3"/></port>
+<port protocol="tcp" portid="443"><state state="open" reason="syn-ack" reason_ttl="64"/><service name="https" servicefp="SF-Port443-TCP:V=7.99%T=SSL%I=2%D=5/23%Time=6A1162EF%P=x86_64-pc-linux-gnu%r(GetRequest,26D9,&quot;HTTP/1\.0\x20200\x20OK\r\nContent-type:\x20text/html\r\nX-robots-tag:\x20noindex,nofollow\r\nX-Frame-Options:\x20deny\r\nX-XSS-Protection:\x201;\x20mode=block\r\nX-Content-Type-Options:\x20nosniff\r\nStrict-Transport-Security:\x20max-age=15768000;\x20includeSubdomains\r\nPragma:\x20no-cache\r\nCache-Control:\x20no-store,\x20no-cache,\x20must-revalidate\r\nContent-Security-Policy:\x20default-src\x20&apos;self&apos;\x20&apos;unsafe-inline&apos;\x20&apos;unsafe-eval&apos;;\x20style-src\x20&apos;self&apos;\x20&apos;unsafe-inline&apos;\x20&apos;unsafe-eval&apos;;\x20frame-src\x20&apos;self&apos;\x20&apos;unsafe-inline&apos;\x20&apos;unsafe-eval&apos;;\x20font-src\x20&apos;self&apos;\x20&apos;unsafe-inline&apos;\x20&apos;unsafe-eval&apos;;\x20form-action\x20&apos;self&apos;\x20&apos;unsafe-inline&apos;\x20&apos;unsafe-eval&apos;;\x20script-src\x20&apos;self&apos;\x20&apos;unsafe-inline&apos;\x20&apos;unsafe-eval&apos;;\x20img-src\x20&apos;self&apos;;\x20connect-src\x20&apos;self&apos;;\x20object-src\x20&apos;none&apos;;\x20media-src\x20&apos;none&apos;;\x20script-nonce\x20&apos;none&apos;;\x20plugin-types\x20&apos;none&apos;;\x20reflected-xss\x20&apos;none&apos;;\x20report-uri\x20&apos;none&apos;;\r\nContent-Length:\x209053\r\nConnection:\x20close\r\nDate:\x20Sat,\x2023\x20May\x202026\x2008:18:55\x20GMT\r\nServer:\x20Xfinity\x20Broadband\x20Router\x20Server\r\n\r\n\n&lt;!DOCTY&quot;)%r(HTTPOptions,26D9,&quot;HTTP/1\.0\x20200\x20OK\r\nContent-type:\x20text/html\r\nX-robots-tag:\x20noindex,nofollow\r\nX-Frame-Options:\x20deny\r\nX-XSS-Protection:\x201;\x20mode=block\r\nX-Content-Type-Options:\x20nosniff\r\nStrict-Transport-Security:\x20max-age=15768000;\x20includeSubdomains\r\nPragma:\x20no-cache\r\nCache-Control:\x20no-store,\x20no-cache,\x20must-revalidate\r\nContent-Security-Policy:\x20default-src\x20&apos;self&apos;\x20&apos;unsafe-inline&apos;\x20&apos;unsafe-eval&apos;;\x20style-src\x20&apos;self&apos;\x20&apos;unsafe-inline&apos;\x20&apos;unsafe-eval&apos;;\x20frame-src\x20&apos;self&apos;\x20&apos;unsafe-inline&apos;\x20&apos;unsafe-eval&apos;;\x20font-src\x20&apos;self&apos;\x20&apos;unsafe-inline&apos;\x20&apos;unsafe-eval&apos;;\x20form-action\x20&apos;self&apos;\x20&apos;unsafe-inline&apos;\x20&apos;unsafe-eval&apos;;\x20script-src\x20&apos;self&apos;\x20&apos;unsafe-inline&apos;\x20&apos;unsafe-eval&apos;;\x20img-src\x20&apos;self&apos;;\x20connect-src\x20&apos;self&apos;;\x20object-src\x20&apos;none&apos;;\x20media-src\x20&apos;none&apos;;\x20script-nonce\x20&apos;none&apos;;\x20plugin-types\x20&apos;none&apos;;\x20reflected-xss\x20&apos;none&apos;;\x20report-uri\x20&apos;none&apos;;\r\nContent-Length:\x209053\r\nConnection:\x20close\r\nDate:\x20Sat,\x2023\x20May\x202026\x2008:18:56\x20GMT\r\nServer:\x20Xfinity\x20Broadband\x20Router\x20Server\r\n\r\n\n&lt;!DOCTY&quot;);" tunnel="ssl" method="table" conf="3"/></port>
+<port protocol="tcp" portid="8080"><state state="filtered" reason="no-response" reason_ttl="0"/><service name="http-proxy" method="table" conf="3"/></port>
+<port protocol="tcp" portid="49152"><state state="open" reason="syn-ack" reason_ttl="64"/><service name="upnp" product="Portable SDK for UPnP devices" version="1.6.22" extrainfo="Linux 4.9.314-cougarmountain; UPnP 1.0" ostype="Linux" method="probed" conf="10"><cpe>cpe:/o:linux:linux_kernel:4.9.314-cougarmountain</cpe></service></port>
+</ports>
+<times srtt="8353" rttvar="2466" to="100000"/>
+</host>
+<host starttime="1779524320" endtime="1779524320"><status state="up" reason="arp-response" reason_ttl="0"/>
+<address addr="192.168.0.121" addrtype="ipv4"/>
+<address addr="D0:3F:27:B5:DC:EA" addrtype="mac" vendor="Wyze Labs"/>
+<hostnames>
+</hostnames>
+<ports><extraports state="closed" count="100">
+<extrareasons reason="reset" count="100" proto="tcp" ports="7,9,13,21-23,25-26,37,53,79-81,88,106,110-111,113,119,135,139,143-144,179,199,389,427,443-445,465,513-515,543-544,548,554,587,631,646,873,990,993,995,1025-1029,1110,1433,1720,1723,1755,1900,2000-2001,2049,2121,2717,3000,3128,3306,3389,3986,4899,5000,5009,5051,5060,5101,5190,5357,5432,5631,5666,5800,5900,6000-6001,6646,7070,8000,8008-8009,8080-8081,8443,8888,9100,9999-10000,32768,49152-49157"/>
+</extraports>
+</ports>
+<times srtt="22637" rttvar="6350" to="100000"/>
+</host>
+<host starttime="1779524320" endtime="1779524352"><status state="up" reason="arp-response" reason_ttl="0"/>
+<address addr="192.168.0.162" addrtype="ipv4"/>
+<address addr="D8:3A:DD:98:E4:87" addrtype="mac" vendor="Raspberry Pi Trading"/>
+<hostnames>
+</hostnames>
+<ports><extraports state="closed" count="96">
+<extrareasons reason="reset" count="96" proto="tcp" ports="7,9,13,21,23,25-26,37,53,79,81,88,106,110-111,113,119,135,139,143-144,179,199,389,427,444-445,465,513-515,543-544,548,554,587,631,646,873,990,993,995,1025-1029,1110,1433,1720,1723,1755,1900,2000-2001,2049,2121,2717,3000,3128,3306,3389,3986,4899,5000,5009,5051,5060,5101,5190,5357,5432,5631,5666,5800,5900,6000-6001,6646,7070,8000,8008-8009,8081,8443,8888,9100,9999-10000,32768,49152-49157"/>
+</extraports>
+<port protocol="tcp" portid="22"><state state="open" reason="syn-ack" reason_ttl="64"/><service name="ssh" product="Dropbear sshd" version="2025.89" extrainfo="protocol 2.0" ostype="Linux" method="probed" conf="10"><cpe>cpe:/a:matt_johnston:dropbear_ssh_server:2025.89</cpe><cpe>cpe:/o:linux:linux_kernel</cpe></service></port>
+<port protocol="tcp" portid="80"><state state="filtered" reason="no-response" reason_ttl="0"/><service name="http" method="table" conf="3"/></port>
+<port protocol="tcp" portid="443"><state state="filtered" reason="no-response" reason_ttl="0"/><service name="https" method="table" conf="3"/></port>
+<port protocol="tcp" portid="8080"><state state="filtered" reason="no-response" reason_ttl="0"/><service name="http-proxy" method="table" conf="3"/></port>
+</ports>
+<times srtt="12626" rttvar="664" to="100000"/>
+</host>
+<host starttime="1779524320" endtime="1779524352"><status state="up" reason="arp-response" reason_ttl="0"/>
+<address addr="192.168.0.189" addrtype="ipv4"/>
+<address addr="D8:3A:DD:8A:BB:FB" addrtype="mac" vendor="Raspberry Pi Trading"/>
+<hostnames>
+</hostnames>
+<ports><extraports state="closed" count="93">
+<extrareasons reason="reset" count="93" proto="tcp" ports="7,9,13,21,23,25-26,37,53,79,81,88,106,110,113,119,135,139,143-144,179,199,389,427,444-445,465,513-515,543-544,548,554,587,631,646,873,990,993,995,1025-1029,1110,1433,1720,1723,1755,1900,2000-2001,2121,2717,3000,3128,3306,3389,3986,4899,5000,5009,5051,5060,5101,5190,5357,5432,5631,5666,5800,6000-6001,6646,7070,8000,8008-8009,8081,8443,8888,9100,9999-10000,32768,49152-49157"/>
+</extraports>
+<port protocol="tcp" portid="22"><state state="open" reason="syn-ack" reason_ttl="64"/><service name="ssh" product="OpenSSH" version="10.0p2 Debian 7+deb13u4" extrainfo="protocol 2.0" ostype="Linux" method="probed" conf="10"><cpe>cpe:/a:openbsd:openssh:10.0p2</cpe><cpe>cpe:/o:linux:linux_kernel</cpe></service></port>
+<port protocol="tcp" portid="80"><state state="filtered" reason="no-response" reason_ttl="0"/><service name="http" method="table" conf="3"/></port>
+<port protocol="tcp" portid="111"><state state="open" reason="syn-ack" reason_ttl="64"/><service name="rpcbind" method="probed" conf="10"/></port>
+<port protocol="tcp" portid="443"><state state="filtered" reason="no-response" reason_ttl="0"/><service name="https" method="table" conf="3"/></port>
+<port protocol="tcp" portid="2049"><state state="open" reason="syn-ack" reason_ttl="64"/><service name="rpcbind" method="probed" conf="10"/></port>
+<port protocol="tcp" portid="5900"><state state="open" reason="syn-ack" reason_ttl="64"/><service name="vnc" product="VNC" extrainfo="protocol 3.8" method="probed" conf="10"/></port>
+<port protocol="tcp" portid="8080"><state state="filtered" reason="no-response" reason_ttl="0"/><service name="http-proxy" method="table" conf="3"/></port>
+</ports>
+<times srtt="8992" rttvar="6432" to="100000"/>
+</host>
+<host starttime="1779524320" endtime="1779524352"><status state="up" reason="arp-response" reason_ttl="0"/>
+<address addr="192.168.0.192" addrtype="ipv4"/>
+<address addr="D8:3A:DD:8A:BB:FC" addrtype="mac" vendor="Raspberry Pi Trading"/>
+<hostnames>
+</hostnames>
+<ports><extraports state="closed" count="93">
+<extrareasons reason="reset" count="93" proto="tcp" ports="7,9,13,21,23,25-26,37,53,79,81,88,106,110,113,119,135,139,143-144,179,199,389,427,444-445,465,513-515,543-544,548,554,587,631,646,873,990,993,995,1025-1029,1110,1433,1720,1723,1755,1900,2000-2001,2121,2717,3000,3128,3306,3389,3986,4899,5000,5009,5051,5060,5101,5190,5357,5432,5631,5666,5800,6000-6001,6646,7070,8000,8008-8009,8081,8443,8888,9100,9999-10000,32768,49152-49157"/>
+</extraports>
+<port protocol="tcp" portid="22"><state state="open" reason="syn-ack" reason_ttl="64"/><service name="ssh" product="OpenSSH" version="10.0p2 Debian 7+deb13u4" extrainfo="protocol 2.0" ostype="Linux" method="probed" conf="10"><cpe>cpe:/a:openbsd:openssh:10.0p2</cpe><cpe>cpe:/o:linux:linux_kernel</cpe></service></port>
+<port protocol="tcp" portid="80"><state state="open" reason="syn-ack" reason_ttl="62"/><service name="http" product="Golang net/http server" extrainfo="Go-IPFS json-rpc or InfluxDB API" method="probed" conf="10"><cpe>cpe:/a:protocol_labs:go-ipfs</cpe></service></port>
+<port protocol="tcp" portid="111"><state state="open" reason="syn-ack" reason_ttl="64"/><service name="rpcbind" method="probed" conf="10"/></port>
+<port protocol="tcp" portid="443"><state state="open" reason="syn-ack" reason_ttl="62"/><service name="http" product="Golang net/http server" extrainfo="Go-IPFS json-rpc or InfluxDB API" tunnel="ssl" method="probed" conf="10"><cpe>cpe:/a:protocol_labs:go-ipfs</cpe></service></port>
+<port protocol="tcp" portid="2049"><state state="open" reason="syn-ack" reason_ttl="64"/><service name="rpcbind" method="probed" conf="10"/></port>
+<port protocol="tcp" portid="5900"><state state="open" reason="syn-ack" reason_ttl="64"/><service name="vnc" product="VNC" extrainfo="protocol 3.8" method="probed" conf="10"/></port>
+<port protocol="tcp" portid="8080"><state state="open" reason="syn-ack" reason_ttl="62"/><service name="http" product="Werkzeug httpd" version="3.1.8" extrainfo="Python 3.11.15" method="probed" conf="10"><cpe>cpe:/a:python:python:3.11.15</cpe></service></port>
+</ports>
+<times srtt="25537" rttvar="4247" to="100000"/>
+</host>
+<host starttime="1779524320" endtime="1779524352"><status state="up" reason="arp-response" reason_ttl="0"/>
+<address addr="192.168.0.193" addrtype="ipv4"/>
+<address addr="04:70:56:54:56:FA" addrtype="mac" vendor="Arcadyan"/>
+<hostnames>
+</hostnames>
+<ports><extraports state="closed" count="99">
+<extrareasons reason="reset" count="99" proto="tcp" ports="7,9,13,21-23,25-26,37,53,79-81,88,106,110-111,113,119,135,139,143-144,179,199,389,427,443-445,465,513-515,543-544,548,554,587,631,646,873,990,993,995,1025-1029,1110,1433,1720,1723,1755,1900,2000-2001,2049,2121,2717,3128,3306,3389,3986,4899,5000,5009,5051,5060,5101,5190,5357,5432,5631,5666,5800,5900,6000-6001,6646,7070,8000,8008-8009,8080-8081,8443,8888,9100,9999-10000,32768,49152-49157"/>
+</extraports>
+<port protocol="tcp" portid="3000"><state state="open" reason="syn-ack" reason_ttl="64"/><service name="tcpwrapped" method="probed" conf="8"/></port>
+</ports>
+<times srtt="15159" rttvar="2205" to="100000"/>
+</host>
+<host starttime="1779524320" endtime="1779524352"><status state="up" reason="arp-response" reason_ttl="0"/>
+<address addr="192.168.0.210" addrtype="ipv4"/>
+<address addr="80:47:86:91:3C:6E" addrtype="mac" vendor="Samsung Electronics"/>
+<hostnames>
+</hostnames>
+<ports><extraports state="closed" count="99">
+<extrareasons reason="reset" count="99" proto="tcp" ports="7,9,13,21-23,25-26,37,53,79-81,88,106,110-111,113,119,135,139,143-144,179,199,389,427,443-445,465,513-515,543-544,548,554,587,631,646,873,990,993,995,1025-1029,1110,1433,1720,1723,1755,1900,2000-2001,2049,2121,2717,3000,3128,3306,3389,3986,4899,5000,5009,5051,5060,5101,5190,5357,5432,5631,5666,5800,5900,6000-6001,6646,7070,8000,8008-8009,8081,8443,8888,9100,9999-10000,32768,49152-49157"/>
+</extraports>
+<port protocol="tcp" portid="8080"><state state="open" reason="syn-ack" reason_ttl="64"/><service name="http" product="lighttpd" method="probed" conf="10"><cpe>cpe:/a:lighttpd:lighttpd</cpe></service></port>
+</ports>
+<times srtt="14685" rttvar="1030" to="100000"/>
+</host>
+<host starttime="1779524320" endtime="1779524322"><status state="up" reason="arp-response" reason_ttl="0"/>
+<address addr="192.168.0.37" addrtype="ipv4"/>
+<address addr="28:EA:0B:76:4F:91" addrtype="mac" vendor="Microsoft"/>
+<hostnames>
+</hostnames>
+<ports><extraports state="filtered" count="100">
+<extrareasons reason="no-response" count="100" proto="tcp" ports="7,9,13,21-23,25-26,37,53,79-81,88,106,110-111,113,119,135,139,143-144,179,199,389,427,443-445,465,513-515,543-544,548,554,587,631,646,873,990,993,995,1025-1029,1110,1433,1720,1723,1755,1900,2000-2001,2049,2121,2717,3000,3128,3306,3389,3986,4899,5000,5009,5051,5060,5101,5190,5357,5432,5631,5666,5800,5900,6000-6001,6646,7070,8000,8008-8009,8080-8081,8443,8888,9100,9999-10000,32768,49152-49157"/>
+</extraports>
+</ports>
+<times srtt="20129" rttvar="20129" to="100645"/>
+</host>
+<host starttime="1779524352" endtime="1779524357"><status state="up" reason="localhost-response" reason_ttl="0"/>
+<address addr="192.168.0.83" addrtype="ipv4"/>
+<hostnames>
+</hostnames>
+<ports><extraports state="filtered" count="98">
+<extrareasons reason="no-response" count="98" proto="tcp" ports="7,9,13,21,23,25-26,37,53,79-81,88,106,110-111,113,119,135,139,143-144,179,199,389,427,443-445,465,513-515,543-544,548,554,587,631,646,873,990,993,995,1025-1029,1110,1433,1720,1723,1755,1900,2000-2001,2049,2121,2717,3000,3128,3306,3986,4899,5000,5009,5051,5060,5101,5190,5357,5432,5631,5666,5800,5900,6000-6001,6646,7070,8000,8008-8009,8080-8081,8443,8888,9100,9999-10000,32768,49152-49157"/>
+</extraports>
+<port protocol="tcp" portid="22"><state state="open" reason="syn-ack" reason_ttl="64"/><service name="ssh" product="OpenSSH" version="10.3p1 Debian 1" extrainfo="protocol 2.0" ostype="Linux" method="probed" conf="10"><cpe>cpe:/a:openbsd:openssh:10.3p1</cpe><cpe>cpe:/o:linux:linux_kernel</cpe></service></port>
+<port protocol="tcp" portid="3389"><state state="open" reason="syn-ack" reason_ttl="64"/><service name="tcpwrapped" method="probed" conf="8"/></port>
+</ports>
+<times srtt="132" rttvar="3777" to="100000"/>
+</host>
+<runstats><finished time="1779524357" timestr="Sat May 23 03:19:17 2026" summary="Nmap done at Sat May 23 03:19:17 2026; 9 IP addresses (9 hosts up) scanned in 40.17 seconds" elapsed="40.17" exit="success"/><hosts up="9" down="0" total="9"/>
+</runstats>
+</nmaprun>

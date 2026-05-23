@@ -1,0 +1,20 @@
+# Nmap 7.99 scan initiated Sat May 23 03:18:37 2026 as: /usr/lib/nmap/nmap --privileged -sV --version-light -F -T4 --max-retries 2 --host-timeout 60s -oN /home/x/aegis-model/recon/inventory/20260523T081833Z/nmap_services.txt -oX /home/x/aegis-model/recon/inventory/20260523T081833Z/nmap_services.xml -oG /home/x/aegis-model/recon/inventory/20260523T081833Z/nmap_services.gnmap 192.168.0.1 192.168.0.121 192.168.0.162 192.168.0.189 192.168.0.192 192.168.0.193 192.168.0.210 192.168.0.37 192.168.0.83
+Host: 192.168.0.1 ()	Status: Up
+Host: 192.168.0.1 ()	Ports: 22/filtered/tcp//ssh///, 23/filtered/tcp//telnet///, 53/open/tcp//domain//dnsmasq 2.83/, 80/open/tcp//http?///, 111/filtered/tcp//rpcbind///, 443/open/tcp//ssl|https?///, 8080/filtered/tcp//http-proxy///, 49152/open/tcp//upnp//Portable SDK for UPnP devices 1.6.22 (Linux 4.9.314-cougarmountain; UPnP 1.0)/	Ignored State: closed (92)
+Host: 192.168.0.121 ()	Status: Up
+Host: 192.168.0.121 ()	Ports: 	Ignored State: closed (100)
+Host: 192.168.0.162 ()	Status: Up
+Host: 192.168.0.162 ()	Ports: 22/open/tcp//ssh//Dropbear sshd 2025.89 (protocol 2.0)/, 80/filtered/tcp//http///, 443/filtered/tcp//https///, 8080/filtered/tcp//http-proxy///	Ignored State: closed (96)
+Host: 192.168.0.189 ()	Status: Up
+Host: 192.168.0.189 ()	Ports: 22/open/tcp//ssh//OpenSSH 10.0p2 Debian 7+deb13u4 (protocol 2.0)/, 80/filtered/tcp//http///, 111/open/tcp//rpcbind///, 443/filtered/tcp//https///, 2049/open/tcp//rpcbind///, 5900/open/tcp//vnc//VNC (protocol 3.8)/, 8080/filtered/tcp//http-proxy///	Ignored State: closed (93)
+Host: 192.168.0.192 ()	Status: Up
+Host: 192.168.0.192 ()	Ports: 22/open/tcp//ssh//OpenSSH 10.0p2 Debian 7+deb13u4 (protocol 2.0)/, 80/open/tcp//http//Golang net|http server (Go-IPFS json-rpc or InfluxDB API)/, 111/open/tcp//rpcbind///, 443/open/tcp//ssl|http//Golang net|http server (Go-IPFS json-rpc or InfluxDB API)/, 2049/open/tcp//rpcbind///, 5900/open/tcp//vnc//VNC (protocol 3.8)/, 8080/open/tcp//http//Werkzeug httpd 3.1.8 (Python 3.11.15)/	Ignored State: closed (93)
+Host: 192.168.0.193 ()	Status: Up
+Host: 192.168.0.193 ()	Ports: 3000/open/tcp//tcpwrapped///	Ignored State: closed (99)
+Host: 192.168.0.210 ()	Status: Up
+Host: 192.168.0.210 ()	Ports: 8080/open/tcp//http//lighttpd/	Ignored State: closed (99)
+Host: 192.168.0.37 ()	Status: Up
+Host: 192.168.0.37 ()	Ports: 	Ignored State: filtered (100)
+Host: 192.168.0.83 ()	Status: Up
+Host: 192.168.0.83 ()	Ports: 22/open/tcp//ssh//OpenSSH 10.3p1 Debian 1 (protocol 2.0)/, 3389/open/tcp//tcpwrapped///	Ignored State: filtered (98)
+# Nmap done at Sat May 23 03:19:17 2026 -- 9 IP addresses (9 hosts up) scanned in 40.17 seconds

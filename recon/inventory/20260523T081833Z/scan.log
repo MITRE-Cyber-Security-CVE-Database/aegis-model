@@ -1,0 +1,53 @@
+[03:18:33] AEGIS recon starting → /home/x/aegis-model/recon/inventory/20260523T081833Z
+[03:18:33] Host: cyberviser  User: x  PID: 2015937
+[03:18:33] === 1. SYSTEM ===
+[03:18:33]   → system.json
+[03:18:33]   → disks.json, disk_usage.txt
+[03:18:33] === 2. FILESYSTEM (top-level home dirs by size) ===
+[03:18:34]   → filesystem.txt
+[03:18:34] === 3. SERVICES & LISTENING SOCKETS ===
+[03:18:34]   → services.txt
+[03:18:34] === 4. SOFTWARE INVENTORY ===
+[03:18:35]   → software.txt
+[03:18:35] === 5. NETWORK (passive) ===
+[03:18:35]   → network_passive.txt
+[03:18:35] === 6. LAN DEEP SCAN (nmap) ===
+[03:18:35]   Target LAN: 192.168.0.0/24
+[03:18:35]   Stage 1/3: ICMP ping sweep...
+Host is up (0.0040s latency).
+MAC Address: 80:47:86:91:3C:6E (Samsung Electronics)
+Nmap scan report for 192.168.0.83
+Host is up.
+Nmap done: 256 IP addresses (9 hosts up) scanned in 2.02 seconds
+[03:18:37]   Found 9 live host(s)
+[03:18:37]   Stage 2/3: nmap top-100 TCP + service version (this takes a few min)...
+Nmap scan report for 192.168.0.83
+Host is up (0.00013s latency).
+Not shown: 98 filtered tcp ports (no-response)
+PORT     STATE SERVICE    VERSION
+22/tcp   open  ssh        OpenSSH 10.3p1 Debian 1 (protocol 2.0)
+3389/tcp open  tcpwrapped
+Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
+
+Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+Nmap done: 9 IP addresses (9 hosts up) scanned in 40.17 seconds
+[03:19:18]   Stage 3/3: NSE safe scripts on common ports...
+|   3000/tcp: 192.168.0.193
+|   3389/tcp: 192.168.0.83
+|_  8080/tcp: 192.168.0.192, 192.168.0.210
+| duplicates: 
+|   ARP
+|       MAC: d8:3a:dd:8a:bb:fb
+|           192.168.0.189
+|_          192.168.0.192
+Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+Nmap done: 9 IP addresses (9 hosts up) scanned in 233.63 seconds
+[03:23:11]   → nmap_*.txt
+[03:23:11] === 7. CLOUD INVENTORY ===
+[03:23:12]   AWS: authenticated, enumerating...
+[03:23:15]     primary region: us-east-1
+[03:23:21]     → cloud/aws_*.json
+[03:23:21] === 8. SECRETS / SENSITIVE FILES (light) ===
+[03:23:58]   → secrets_audit.txt
+[03:23:58] === 9. SUMMARY ===
+[03:23:58] DONE → /home/x/aegis-model/recon/inventory/20260523T081833Z/summary.md

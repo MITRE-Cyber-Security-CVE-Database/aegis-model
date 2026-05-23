@@ -1,0 +1,187 @@
+# Interfaces
+[1;36mlo               [0mUNKNOWN        [1;35m127.0.0.1[0m/8 [1;94m::1[0m/128 
+[1;36meth0             [0m[1;32mUP             [0m[1;35m10.42.0.1[0m/24 [1;94mfe80::cfb5:c3b6:35b3:3cc8[0m/64 
+[1;36mwlan0            [0m[1;32mUP             [0m[1;35m192.168.0.83[0m/24 [1;94m2600:8807:2680:7bc0::f340[0m/128 [1;94m2600:8807:2680:7bc0:14ab:ff09:1c11:8786[0m/64 [1;94mfe80::86f3:a58a:8e70:c77f[0m/64 
+[1;36mlxcbr0           [0m[1;31mDOWN           [0m[1;35m10.0.3.1[0m/24 [1;94mfc42:5009:ba4b:5ab0::1[0m/64 
+[1;36mdocker0          [0m[1;32mUP             [0m[1;35m172.17.0.1[0m/16 [1;94mfe80::b8aa:d1ff:fe42:ecb1[0m/64 
+[1;36mbr-f117c391d11b  [0m[1;32mUP             [0m[1;35m172.21.0.1[0m/16 [1;94mfe80::94e9:a4ff:fe99:dbdf[0m/64 
+[1;36mbr-f6379ced3668  [0m[1;32mUP             [0m[1;35m172.22.0.1[0m/16 [1;94mfe80::bc71:a9ff:fe03:6140[0m/64 
+[1;36mvetha95f726@if2  [0m[1;32mUP             [0m[1;94mfe80::9458:47ff:fe09:2ae6[0m/64 
+[1;36mvethedd121e@if2  [0m[1;32mUP             [0m[1;94mfe80::60d7:75ff:fec2:e930[0m/64 
+[1;36mflannel.1        [0mUNKNOWN        [1;35m10.42.3.0[0m/32 [1;94mfe80::6c0e:7ff:fed6:d71[0m/64 
+[1;36mcni0             [0m[1;32mUP             [0m[1;35m10.42.3.1[0m/24 [1;94mfe80::f0ce:44ff:fee0:62b6[0m/64 
+[1;36mvethbe463ad5@if2 [0m[1;32mUP             [0m[1;94mfe80::3052:caff:fed5:3aec[0m/64 
+[1;36mveth8d900f9f@if2 [0m[1;32mUP             [0m[1;94mfe80::a8cc:c7ff:fe3c:cd03[0m/64 
+[1;36mvethd13a1f7@veth7a3d916 [0m[1;31mDOWN           [0m[1;94mfe80::9c22:efff:fe63:b2ba[0m/64 
+[1;36mvethf290dc2@veth29ac0de [0m[1;31mDOWN           [0m[1;94mfe80::2884:87ff:fe71:ac57[0m/64 
+[1;36meth1             [0m[1;31mDOWN           [0m
+[1;36mveth7a3d916@vethd13a1f7 [0m[1;31mDOWN           [0m
+[1;36mveth29ac0de@vethf290dc2 [0m[1;31mDOWN           [0m
+[1;36mbr-b2522fb0e281  [0m[1;32mUP             [0m[1;35m172.18.0.1[0m/16 [1;94mfe80::b498:7fff:fe49:1988[0m/64 
+[1;36mvethea9488e@if2  [0m[1;32mUP             [0m[1;94mfe80::60d2:5cff:fead:a244[0m/64 
+[1;36mbr-e2b2552c5fdd  [0m[1;32mUP             [0m[1;35m172.19.0.1[0m/16 [1;94mfe80::6852:51ff:fe1b:8ca9[0m/64 
+[1;36mvethcff2535@if2  [0m[1;32mUP             [0m[1;94mfe80::1c8a:42ff:fe92:36da[0m/64 
+[1;36mveth4d15958@if2  [0m[1;32mUP             [0m[1;94mfe80::9c15:73ff:fe61:bd56[0m/64 
+[1;36mvethc6d2131@if2  [0m[1;32mUP             [0m[1;94mfe80::74c4:7fff:fec9:423f[0m/64 
+[1;36mvethcb3fb98@if2  [0m[1;32mUP             [0m[1;94mfe80::e81f:e1ff:fe42:fc8d[0m/64 
+[1;36mveth2461f4e@if2  [0m[1;32mUP             [0m[1;94mfe80::3cc7:60ff:fedc:6d33[0m/64 
+[1;36mvethabc0d4e@if2  [0m[1;32mUP             [0m[1;94mfe80::6448:f5ff:fe30:b62d[0m/64 
+[1;36mveth97b04b9@if2  [0m[1;32mUP             [0m[1;94mfe80::e83c:f5ff:feb3:e957[0m/64 
+[1;36mbr-ea4509c52de0  [0m[1;32mUP             [0m[1;35m172.20.0.1[0m/16 [1;94mfe80::d0eb:68ff:febf:2d27[0m/64 
+[1;36mvethad4461d@if2  [0m[1;32mUP             [0m[1;94mfe80::7ce7:4bff:fe38:2d45[0m/64 
+[1;36mveth38a9c8c@if2  [0m[1;32mUP             [0m[1;94mfe80::7c24:ecff:fe5c:d1e6[0m/64 
+[1;36mveth564841b@if2  [0m[1;32mUP             [0m[1;94mfe80::6c69:dbff:feab:9591[0m/64 
+[1;36mveth8fc61a2@if2  [0m[1;32mUP             [0m[1;94mfe80::58c7:f9ff:fe85:2318[0m/64 
+[1;36mvethb6d1c1b@if2  [0m[1;32mUP             [0m[1;94mfe80::441:10ff:fe24:248[0m/64 
+[1;36mbr-dc5a7b01325c  [0m[1;32mUP             [0m[1;35m172.23.0.1[0m/16 [1;94mfe80::f402:23ff:fe1e:5a62[0m/64 
+[1;36mvetha834a0c@if2  [0m[1;32mUP             [0m[1;94mfe80::20e8:98ff:fe95:1a8d[0m/64 
+
+# Routing table
+default via 192.168.0.1 dev wlan0 proto dhcp src 192.168.0.83 metric 600 
+10.0.3.0/24 dev lxcbr0 proto kernel scope link src 10.0.3.1 linkdown 
+10.42.0.0/24 via 10.42.0.0 dev flannel.1 onlink 
+10.42.0.0/24 dev eth0 proto kernel scope link src 10.42.0.1 metric 100 
+10.42.1.0/24 via 10.42.1.0 dev flannel.1 onlink 
+10.42.2.0/24 via 10.42.2.0 dev flannel.1 onlink 
+10.42.3.0/24 dev cni0 proto kernel scope link src 10.42.3.1 
+172.17.0.0/16 dev docker0 proto kernel scope link src 172.17.0.1 
+172.18.0.0/16 dev br-b2522fb0e281 proto kernel scope link src 172.18.0.1 
+172.19.0.0/16 dev br-e2b2552c5fdd proto kernel scope link src 172.19.0.1 
+172.20.0.0/16 dev br-ea4509c52de0 proto kernel scope link src 172.20.0.1 
+172.21.0.0/16 dev br-f117c391d11b proto kernel scope link src 172.21.0.1 
+172.22.0.0/16 dev br-f6379ced3668 proto kernel scope link src 172.22.0.1 
+172.23.0.0/16 dev br-dc5a7b01325c proto kernel scope link src 172.23.0.1 
+192.168.0.0/24 dev wlan0 proto kernel scope link src 192.168.0.83 metric 600 
+
+# IPv6 routes
+2600:8807:2680:7bc0::f340 dev wlan0 proto kernel metric 600 pref medium
+2600:8807:2680:7bc0::/64 dev wlan0 proto ra metric 600 pref medium
+fc42:5009:ba4b:5ab0::/64 dev lxcbr0 proto kernel metric 256 linkdown pref medium
+fe80::/64 dev vetha95f726 proto kernel metric 256 pref medium
+fe80::/64 dev br-f6379ced3668 proto kernel metric 256 pref medium
+fe80::/64 dev br-f117c391d11b proto kernel metric 256 pref medium
+fe80::/64 dev vethedd121e proto kernel metric 256 pref medium
+fe80::/64 dev flannel.1 proto kernel metric 256 pref medium
+fe80::/64 dev cni0 proto kernel metric 256 pref medium
+fe80::/64 dev vethbe463ad5 proto kernel metric 256 pref medium
+fe80::/64 dev veth8d900f9f proto kernel metric 256 pref medium
+fe80::/64 dev docker0 proto kernel metric 256 pref medium
+fe80::/64 dev vethd13a1f7 proto kernel metric 256 linkdown pref medium
+fe80::/64 dev vethf290dc2 proto kernel metric 256 linkdown pref medium
+fe80::/64 dev vethea9488e proto kernel metric 256 pref medium
+fe80::/64 dev br-b2522fb0e281 proto kernel metric 256 pref medium
+fe80::/64 dev vethcff2535 proto kernel metric 256 pref medium
+fe80::/64 dev br-e2b2552c5fdd proto kernel metric 256 pref medium
+fe80::/64 dev veth4d15958 proto kernel metric 256 pref medium
+fe80::/64 dev vethc6d2131 proto kernel metric 256 pref medium
+
+# ARP / neighbor cache (already-known LAN devices)
+172.21.0.3 dev br-f117c391d11b lladdr f2:15:36:c7:4c:5e STALE 
+10.42.3.7 dev cni0 lladdr 76:66:0d:be:f5:dd STALE 
+192.168.0.193 dev eth0 lladdr 04:70:56:54:56:fa STALE 
+10.42.3.11 dev cni0 lladdr aa:6c:e5:ef:34:5c STALE 
+10.42.3.17 dev cni0 lladdr 42:a2:10:c3:97:8f STALE 
+172.20.0.2 dev br-ea4509c52de0 lladdr 7a:c2:05:be:38:80 REACHABLE 
+10.42.3.5 dev cni0 lladdr 76:05:71:00:67:31 STALE 
+172.22.0.2 dev br-f6379ced3668 lladdr 9e:ff:7d:c4:3c:f7 STALE 
+192.168.0.193 dev wlan0 lladdr 04:70:56:54:56:fa STALE 
+172.17.0.3 dev docker0 lladdr 72:1a:8a:7b:de:d5 STALE 
+10.42.3.9 dev cni0 lladdr 86:78:c9:fe:7c:4f STALE 
+192.168.0.210 dev eth0 lladdr 80:47:86:91:3c:6e STALE 
+172.19.0.5 dev br-e2b2552c5fdd lladdr 56:1e:92:47:e7:35 STALE 
+10.42.3.12 dev cni0 lladdr 82:c3:4a:d4:9f:1a STALE 
+10.42.3.18 dev cni0 lladdr 06:4f:9b:b7:de:3c STALE 
+10.42.3.3 dev cni0 lladdr 4a:53:02:01:a8:d2 STALE 
+10.42.3.6 dev cni0 lladdr 06:a9:7f:25:77:de STALE 
+172.17.0.4 dev docker0 lladdr 06:b7:d5:fa:68:3a STALE 
+10.42.3.10 dev cni0 lladdr 2e:7b:ed:6a:3c:55 STALE 
+10.42.0.0 dev flannel.1 lladdr e6:0a:b6:70:19:44 PERMANENT 
+10.42.3.16 dev cni0 lladdr 9e:e5:9d:97:d3:f7 STALE 
+10.42.1.0 dev flannel.1 lladdr 12:c3:aa:46:fc:e3 PERMANENT 
+192.168.0.121 dev wlan0 lladdr d0:3f:27:b5:dc:ea STALE 
+192.168.0.70 dev wlan0 lladdr 16:09:01:19:56:ff STALE 
+10.42.3.4 dev cni0 lladdr be:e0:4f:35:99:0e STALE 
+10.42.2.0 dev flannel.1 lladdr 52:33:3d:49:e0:8f PERMANENT 
+192.168.0.192 dev wlan0 lladdr d8:3a:dd:8a:bb:fb STALE 
+172.17.0.2 dev docker0 lladdr 72:41:14:4c:97:88 STALE 
+10.42.3.8 dev cni0 lladdr 1e:74:6a:78:35:55 STALE 
+192.168.0.189 dev eth0 lladdr d8:3a:dd:8a:bb:fb STALE 
+10.42.3.15 dev cni0 lladdr ba:25:0e:ab:15:95 STALE 
+192.168.0.37 dev wlan0 lladdr 28:ea:0b:76:4f:91 STALE 
+172.20.0.3 dev br-ea4509c52de0 lladdr 26:fb:c1:8c:e0:9f DELAY 
+10.42.3.2 dev cni0 lladdr 36:6d:e4:58:f7:58 STALE 
+192.168.0.162 dev wlan0 lladdr d8:3a:dd:98:e4:87 STALE 
+172.18.0.2 dev br-b2522fb0e281 lladdr 7a:3e:7d:57:52:63 STALE 
+172.19.0.6 dev br-e2b2552c5fdd lladdr c2:9f:f0:23:10:07 STALE 
+192.168.0.210 dev wlan0 lladdr 80:47:86:91:3c:6e STALE 
+10.42.3.13 dev cni0 lladdr 16:34:eb:82:9c:39 STALE 
+192.168.0.189 dev wlan0 lladdr d8:3a:dd:8a:bb:fb REACHABLE 
+192.168.0.1 dev wlan0 lladdr 10:e1:77:2b:be:8d REACHABLE 
+fe80::4853:2ff:fe01:a8d2 dev cni0 lladdr 4a:53:02:01:a8:d2 STALE 
+fe80::845:d25a:81e7:a5c2 dev eth0 lladdr 16:09:01:19:56:ff STALE 
+fe80::d50b:9558:dbe7:88d3 dev eth0 lladdr d8:3a:dd:8a:bb:fc STALE 
+fe80::845:d25a:81e7:a5c2 dev wlan0 lladdr 16:09:01:19:56:ff STALE 
+fe80::d50b:9558:dbe7:88d3 dev wlan0 lladdr d8:3a:dd:8a:bb:fc STALE 
+fe80::cfb5:c3b6:35b3:3cc8 dev wlan0 lladdr 40:c2:ba:ea:15:db router DELAY 
+2600:8807:2680:7bc0:ac34:9b73:214:c449 dev wlan0 lladdr 80:47:86:91:3c:6e STALE 
+fe80::12e1:77ff:fe2b:be8d dev eth0 lladdr 10:e1:77:2b:be:8d router STALE 
+fe80::2905:405f:9653:bf96 dev eth0 lladdr 28:ea:0b:76:4f:91 STALE 
+fe80::12e1:77ff:fe2b:be8d dev wlan0 lladdr 10:e1:77:2b:be:8d router STALE 
+fe80::86f3:a58a:8e70:c77f dev eth0 lladdr b8:1e:a4:27:4e:b1 router STALE 
+2600:8807:2680:7bc0:da3a:ddff:fe98:e487 dev wlan0 lladdr d8:3a:dd:98:e4:87 STALE 
+fe80::8247:86ff:fe91:3c6e dev eth0 lladdr 80:47:86:91:3c:6e STALE 
+fe80::346d:e4ff:fe58:f758 dev cni0 lladdr 36:6d:e4:58:f7:58 STALE 
+fe80::da3a:ddff:fe98:e487 dev eth0 lladdr d8:3a:dd:98:e4:87 STALE 
+fe80::8247:86ff:fe91:3c6e dev wlan0 lladdr 80:47:86:91:3c:6e STALE 
+fe80::670:56ff:fe54:56fa dev eth0 lladdr 04:70:56:54:56:fa STALE 
+fe80::da3a:ddff:fe98:e487 dev wlan0 lladdr d8:3a:dd:98:e4:87 STALE 
+fe80::670:56ff:fe54:56fa dev wlan0 lladdr 04:70:56:54:56:fa STALE 
+2600:8807:2680:7bc0:bc98:976:7ffe:ed4e dev wlan0 lladdr 16:09:01:19:56:ff STALE 
+fe80::a2a2:51f7:af5f:4a4 dev eth0 lladdr d8:3a:dd:8a:bb:fb STALE 
+2600:8807:2680:7bc0::3c13 dev wlan0 lladdr 04:70:56:54:56:fa STALE 
+fe80::a2a2:51f7:af5f:4a4 dev wlan0 lladdr d8:3a:dd:8a:bb:fb STALE 
+2600:8807:2680:7bc0::1fd2 dev wlan0 lladdr d8:3a:dd:8a:bb:fb STALE 
+2600:8807:2680:7bc0::ab dev wlan0 lladdr d8:3a:dd:8a:bb:fc STALE 
+
+# DNS resolvers
+nameserver 68.105.29.11
+nameserver 68.105.28.12
+
+# /etc/hosts custom entries
+127.0.0.1	localhost
+127.0.1.1	cyberviser.cyberviserai.com	cyberviser
+::1     localhost ip6-localhost ip6-loopback
+ff02::1 ip6-allnodes
+ff02::2 ip6-allrouters
+
+# Active connections (top 30)
+Recv-Q Send-Q                               Local Address:Port                 Peer Address:Port Process
+0      0                                        127.0.0.1:6444                    127.0.0.1:39170
+0      0                                        127.0.0.1:37477                   127.0.0.1:40832 users:(("windsurf",pid=574534,fd=97))
+0      0                                     192.168.0.83:38606                34.49.14.144:443   users:(("windsurf",pid=574534,fd=106))
+0      0                                     192.168.0.83:41366                34.49.14.144:443   users:(("language_server",pid=575413,fd=21))
+0      0                                        127.0.0.1:37343                   127.0.0.1:33728 users:(("language_server",pid=575413,fd=89))
+0      0                                       172.23.0.1:47563                   10.42.0.1:60796 users:(("rygel",pid=571867,fd=185))
+0      0                                       172.23.0.1:60796                  172.23.0.1:47563 users:(("rygel",pid=571867,fd=184))
+0      0                                       172.23.0.1:60808                  172.23.0.1:47563 users:(("rygel",pid=571867,fd=186))
+0      0                                     192.168.0.83:54996                34.49.14.144:443   users:(("language_server",pid=575413,fd=20))
+0      0                                     192.168.0.83:54998                34.49.14.144:443   users:(("language_server",pid=575413,fd=6))
+0      0                                        127.0.0.1:39168                   127.0.0.1:6444 
+0      0                                        127.0.0.1:39170                   127.0.0.1:6444 
+0      0                                        127.0.0.1:39176                   127.0.0.1:6444 
+0      0                                        127.0.0.1:37477                   127.0.0.1:52010 users:(("windsurf",pid=574534,fd=174))
+0      0                                        127.0.0.1:37343                   127.0.0.1:33656 users:(("language_server",pid=575413,fd=49))
+0      0                                        127.0.0.1:37343                   127.0.0.1:33752 users:(("language_server",pid=575413,fd=91))
+0      0                                        127.0.0.1:37343                   127.0.0.1:33740 users:(("language_server",pid=575413,fd=94))
+0      0                                        127.0.0.1:37343                   127.0.0.1:55012 users:(("language_server",pid=575413,fd=53))
+0      0                                        127.0.0.1:33608                   127.0.0.1:37343 users:(("windsurf",pid=574203,fd=39))
+0      0                                        127.0.0.1:33656                   127.0.0.1:37343 users:(("windsurf",pid=574203,fd=51))
+0      0                                        127.0.0.1:33728                   127.0.0.1:37343 users:(("windsurf",pid=574203,fd=57))
+0      0                                        127.0.0.1:33740                   127.0.0.1:37343 users:(("windsurf",pid=574203,fd=60))
+0      0                                        127.0.0.1:33752                   127.0.0.1:37343 users:(("windsurf",pid=574203,fd=61))
+0      0                                        127.0.0.1:40672                   127.0.0.1:37343 users:(("windsurf",pid=574203,fd=44))
+0      0                                        127.0.0.1:41478                   127.0.0.1:37343 users:(("windsurf",pid=574534,fd=153))
+0      0                                        127.0.0.1:37477                   127.0.0.1:36842 users:(("windsurf",pid=574534,fd=112))
+0      0                                     192.168.0.83:45572              18.161.156.112:443   users:(("windsurf",pid=574534,fd=89))
+0      0                                        127.0.0.1:55012                   127.0.0.1:37343 users:(("windsurf",pid=574534,fd=159))
+0      0                                        127.0.0.1:6444                    127.0.0.1:39168
