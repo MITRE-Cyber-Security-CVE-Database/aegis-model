@@ -1,0 +1,45 @@
+name: AutoBench
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  schedule:
+    - cron: "0 6 * * *"  # daily sanity check
+  workflow_dispatch:
+
+jobs:
+  autobench-noop:
+    name: "Calibration (noop agent)"
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        run: |
+          apt-get update && apt-get install -y python3 python3-pip
+          python3 --version
+
+      - name: Run AutoBench with noop agent
+        run: |
+          python3 bench/autobench/scorer.py
+          python3 bench/autobench/run.py --list
+          python3 bench/autobench/run.py --all --agent noop --report /tmp/noop-results.json
+
+      - name: Upload report
+        uses: actions/upload-artifact@v3
+        with:
+          name: autobench-noop-${{ github.sha }}
+          path: /tmp/noop-results.json
+
+      - name: Assert calibration (noop must score < 0.1)
+        run: |
+          python3 -c "
+          import json
+          r = json.load(open('/tmp/noop-results.json'))
+          score = r['summary']['suite_autoscore']
+          print(f'noop suite AutoScore = {score:.3f}')
+          assert score < 0.10, f'noop agent should score < 0.1 but got {score}'
+          print('Calibration OK')
+          "
