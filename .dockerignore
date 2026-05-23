@@ -1,0 +1,16 @@
+.git
+.github
+*.md
+!README.md
+__pycache__
+*.pyc
+.venv
+.aegis-venv
+models/
+*.gguf
+*.bin
+*.safetensors
+.env
+.env.local
+.DS_Store
+node_modules

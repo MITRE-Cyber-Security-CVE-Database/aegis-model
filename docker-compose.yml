@@ -1,0 +1,56 @@
+version: "3.9"
+
+# AEGIS local GPU build/merge/quantize pipeline
+# Usage:
+#   docker compose run --rm builder            # full pipeline (merge + quantize)
+#   docker compose run --rm builder bash       # interactive shell
+#   docker compose run --rm builder python src/merge_adapters.py --list
+
+services:
+  builder:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: aegis-builder:latest
+    container_name: aegis-builder
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: all
+              capabilities: [gpu]
+    volumes:
+      - /home/x/models:/models
+      - ./:/workspace
+      - aegis-hf-cache:/models/hf-cache
+    environment:
+      - HF_HOME=/models/hf-cache
+      - CUDA_VISIBLE_DEVICES=0
+      - PYTHONUNBUFFERED=1
+    shm_size: "8gb"
+    tty: true
+    stdin_open: true
+
+  # Ollama inference for serving the final GGUF
+  ollama:
+    image: ollama/ollama:latest
+    container_name: aegis-ollama
+    ports:
+      - "11434:11434"
+    volumes:
+      - aegis-ollama:/root/.ollama
+      - /home/x/models:/models:ro
+      - ./deploy/Modelfile:/Modelfile:ro
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: all
+              capabilities: [gpu]
+    restart: unless-stopped
+
+volumes:
+  aegis-hf-cache:
+  aegis-ollama:
