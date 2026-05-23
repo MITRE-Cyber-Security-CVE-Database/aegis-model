@@ -22,11 +22,34 @@ except ImportError:
 
 
 BASE_MODEL = "mistralai/Mistral-7B-Instruct-v0.3"
+# Discovered adapters from /home/x/models/hf/ (May 2026)
+# Downloaded via: hf download cyberviser/<repo> --local-dir /home/x/models/hf/<name>
 ADAPTER_PATHS = {
-    "hancock": "/home/x/models/hf/hancock-pentest-v1",
+    "hancock_pentest": "/home/x/models/hf/hancock-pentest-v1",
+    "hancock_mistral": "/home/x/models/hf/hancock-mistral-7b-adapter",
+    "hancock_v032": "/home/x/models/hf/hancock-v0.3.2-adapter",
     "sauron": "/home/x/models/hf/sauron-v3",
-    "hancock_v2": "/home/x/models/hf/hancock-v0.3.2-adapter",
+    "sauron_v1": "/home/x/models/hf/sauron-v1",
+    "sauron_v2": "/home/x/models/hf/sauron-v2",
 }
+
+
+def discover_adapters() -> dict:
+    """Scan /home/x/models/hf/ for available adapters."""
+    found = {}
+    for name, path in ADAPTER_PATHS.items():
+        if os.path.isdir(path):
+            # Check it looks like a PEFT adapter (has adapter_config.json or adapter_model.safetensors)
+            has_config = os.path.exists(os.path.join(path, "adapter_config.json"))
+            has_weights = any(os.path.exists(os.path.join(path, f"adapter_model.{ext}")) for ext in ["safetensors", "bin"])
+            if has_config or has_weights:
+                found[name] = path
+                print(f"  [OK] {name}: {path}")
+            else:
+                print(f"  [SKIP] {name}: {path} (no adapter_config.json or adapter_model weights)")
+        else:
+            print(f"  [MISSING] {name}: {path}")
+    return found
 
 
 def merge_adapters(base_model_name: str, output_dir: str, weights: dict = None):
@@ -34,7 +57,29 @@ def merge_adapters(base_model_name: str, output_dir: str, weights: dict = None):
     Merge multiple LoRA adapters into a single model.
     Uses linear interpolation of adapter weights.
     """
-    weights = weights or {"hancock": 0.4, "sauron": 0.4, "hancock_v2": 0.2}
+    # Discover available adapters
+    available = discover_adapters()
+    if not available:
+        raise RuntimeError("No adapters found! Run: hf download cyberviser/<repo> --local-dir /home/x/models/hf/<name>")
+
+    # Default weights: prioritize pentest-focused adapters
+    default_weights = {
+        "hancock_pentest": 0.35,
+        "hancock_mistral": 0.25,
+        "sauron": 0.25,
+        "hancock_v032": 0.15,
+    }
+    # Filter weights to only available adapters and normalize
+    weights = weights or {}
+    for k in list(weights.keys()):
+        if k not in available:
+            del weights[k]
+    if not weights:
+        weights = {k: v for k, v in default_weights.items() if k in available}
+
+    total = sum(weights.values())
+    weights = {k: v / total for k, v in weights.items()}
+    print(f"\n[AEGIS] Merge weights (normalized): {weights}")
 
     print(f"[AEGIS] Loading base model: {base_model_name}")
     print(f"[AEGIS] This will use ~14GB RAM. Ensure you have sufficient memory.")
@@ -51,16 +96,19 @@ def merge_adapters(base_model_name: str, output_dir: str, weights: dict = None):
 
     # Load and merge each adapter
     merged_state = None
-    for name, path in ADAPTER_PATHS.items():
-        if not os.path.exists(path):
-            print(f"[WARN] Adapter {name} not found at {path}, skipping")
+    for name, path in available.items():
+        if name not in weights:
             continue
 
-        weight = weights.get(name, 0.33)
-        print(f"[AEGIS] Loading adapter '{name}' from {path} (weight={weight})")
+        weight = weights[name]
+        print(f"[AEGIS] Loading adapter '{name}' from {path} (weight={weight:.3f})")
 
-        adapter_model = PeftModel.from_pretrained(model, path)
-        adapter_state = adapter_model.state_dict()
+        try:
+            adapter_model = PeftModel.from_pretrained(model, path)
+            adapter_state = adapter_model.state_dict()
+        except Exception as e:
+            print(f"[WARN] Failed to load {name}: {e}")
+            continue
 
         if merged_state is None:
             merged_state = {k: v * weight for k, v in adapter_state.items()}
@@ -72,7 +120,7 @@ def merge_adapters(base_model_name: str, output_dir: str, weights: dict = None):
                     merged_state[k] = v * weight
 
     if merged_state is None:
-        raise RuntimeError("No adapters found to merge!")
+        raise RuntimeError("No adapters successfully loaded for merge!")
 
     # Apply merged state to a new PEFT model
     print("[AEGIS] Applying merged adapter weights...")
@@ -116,15 +164,23 @@ def main():
     parser = argparse.ArgumentParser(description="AEGIS Adapter Merger")
     parser.add_argument("--output", default="/home/x/models/hf/aegis-v1-adapter", help="Output directory")
     parser.add_argument("--base", default=BASE_MODEL, help="Base model name")
-    parser.add_argument("--hancock-weight", type=float, default=0.4, help="Hancock adapter weight")
-    parser.add_argument("--sauron-weight", type=float, default=0.4, help="Sauron adapter weight")
-    parser.add_argument("--hancock2-weight", type=float, default=0.2, help="Hancock v2 adapter weight")
+    parser.add_argument("--list", action="store_true", help="List available adapters and exit")
+    parser.add_argument("--hancock-pentest-weight", type=float, default=0.35, help="Hancock pentest adapter weight")
+    parser.add_argument("--hancock-mistral-weight", type=float, default=0.25, help="Hancock mistral adapter weight")
+    parser.add_argument("--sauron-weight", type=float, default=0.25, help="Sauron adapter weight")
+    parser.add_argument("--hancock-v032-weight", type=float, default=0.15, help="Hancock v0.3.2 adapter weight")
     args = parser.parse_args()
 
+    if args.list:
+        print("[AEGIS] Available adapters:")
+        discover_adapters()
+        return
+
     weights = {
-        "hancock": args.hancock_weight,
+        "hancock_pentest": args.hancock_pentest_weight,
+        "hancock_mistral": args.hancock_mistral_weight,
         "sauron": args.sauron_weight,
-        "hancock_v2": args.hancock2_weight,
+        "hancock_v032": args.hancock_v032_weight,
     }
 
     merge_adapters(args.base, args.output, weights)
